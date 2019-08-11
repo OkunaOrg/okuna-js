@@ -1,0 +1,48 @@
+{
+  "name": "okuna",
+  "version": "1.0.0",
+  "description": "Node.js API bindings for the Okuna social network.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jozsefsallai/okuna.js.git"
+  },
+  "keywords": [
+    "okuna",
+    "social",
+    "network",
+    "api"
+  ],
+  "author": "@jozsefsallai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jozsefsallai/okuna.js/issues"
+  },
+  "files": [
+    "/lib"
+  ],
+  "homepage": "https://github.com/jozsefsallai/okuna.js#readme",
+  "devDependencies": {
+    "@types/chai": "^4.2.0",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.7.1",
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.6",
+    "mocha": "^6.2.0",
+    "nyc": "^14.1.1",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "axios": "^0.19.0"
+  },
+  "scripts": {
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "lint": "tslint --project .",
+    "prepack": "rm -rf lib && tsc",
+    "prepare": "rm -rf lib && tsc",
+    "test": "mocha --forbid-only \"test/**/*.test.ts\"",
+    "test:cover": "nyc --reporter=lcov --reporter=text npm run test"
+  }
+}
