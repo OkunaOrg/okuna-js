@@ -1,5 +1,6 @@
 import { OkunaOpts } from "./typings";
 
+import { CategoriesAPI } from './api/categories';
 import { DevicesAPI } from './api/devices';
 
 /**
@@ -22,6 +23,14 @@ class Okuna {
     this.authToken = opts.authToken;
     this.magicHeaderName = opts.magicHeaderName || 'X-JESUS-TAKE-THE-WHEEL';
     this.magicHeaderValue = opts.magicHeaderValue || 'jesusCantReallyDriveTho';  
+  }
+
+  /**
+   * categories()
+   * @returns {CategoriesAPI} - CategoriesAPI instance
+   */
+  categories() {
+    return new CategoriesAPI({ okuna: this, endpoint: '/api/categories' });
   }
 
   /**
