@@ -1,4 +1,4 @@
-import { RequestStrategy } from '.';
+import RequestStrategy from './core';
 
 import es6promise from 'es6-promise';
 es6promise.polyfill();

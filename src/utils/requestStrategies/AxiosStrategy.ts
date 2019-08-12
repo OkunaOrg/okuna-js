@@ -1,5 +1,5 @@
 import axios, { AxiosPromise } from 'axios';
-import { RequestStrategy } from '.';
+import RequestStrategy from './core';
 
 /**
  * @api

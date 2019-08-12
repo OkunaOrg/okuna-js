@@ -1,16 +1,9 @@
-class RequestStrategy {
-  public name: string;
-
-  constructor(name: string) {
-    this.name = name;
-  }
-}
-
+import RequestStrategy from './core';
 import AxiosStrategy from './AxiosStrategy';
 import FetchStrategy from './FetchStrategy';
 
 const getRequestStrategy = (strategy: any) => {
-  if (typeof strategy === 'function' && strategy.prototype === RequestStrategy) {
+  if (typeof strategy === 'function' && strategy.prototype instanceof RequestStrategy) {
     return new strategy();
   }
 
@@ -26,6 +19,6 @@ const getRequestStrategy = (strategy: any) => {
 };
 
 export {
-  RequestStrategy,
-  getRequestStrategy
+  getRequestStrategy,
+  RequestStrategy
 };
