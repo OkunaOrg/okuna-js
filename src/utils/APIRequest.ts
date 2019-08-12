@@ -1,9 +1,7 @@
 import { RequestOpts, IRequestStrategy } from '../typings';
 import { Client } from '../Okuna';
 import buildUrl from './buildUrl';
-import { getRequestStrategy, RequestStrategy } from './requestStrategies';
-
-import axios, { AxiosPromise } from 'axios';
+import { getRequestStrategy } from './requestStrategies';
 
 /**
  * @api

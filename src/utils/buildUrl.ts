@@ -7,11 +7,17 @@
  * @returns {string} - The final URL to fetch
  */
 const buildUrl = (apiUrl: string, paths: string[], params: object): string => {
+  if (apiUrl.slice(-1) !== '/') {
+    apiUrl = `${apiUrl}/`;
+  }
+
   const _paths: string = paths.join('/');
   const _params: string = Object.keys(params)
     .map((key: string) => `${key}=${(params as any)[key]}`)
     .join('&');
-  return `${apiUrl}${_paths}/${_params}`;
+  return _params
+    ? `${apiUrl}${_paths}?${_params}`
+    : `${apiUrl}${_paths}`;
 };
 
 export default buildUrl;

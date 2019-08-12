@@ -13,8 +13,8 @@ import { RequestStrategy } from '../utils/requestStrategies';
 export interface OkunaOpts {
   apiUrl?: string;
   authToken: string;
-  magicHeaderName?: string;
-  magicHeaderValue?: string;
+  magicHeaderName?: string | null | undefined;
+  magicHeaderValue?: string | null | undefined;
   requestStrategy?: string | RequestStrategy;
 }
 
