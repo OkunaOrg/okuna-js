@@ -1,6 +1,5 @@
 import { APIRequest } from '../utils/APIRequest';
 import { RequestOpts } from '../typings';
-import { AxiosResponse, AxiosError } from 'axios';
 
 class DevicesAPI extends APIRequest {
   constructor(opts: RequestOpts) {
@@ -11,8 +10,8 @@ class DevicesAPI extends APIRequest {
     return new Promise((resolve, reject) => {
       return this
         .get()
-        .then((res: AxiosResponse) => resolve(res.data))
-        .catch((err: AxiosError) => reject(err));
+        .then((res) => resolve(res.data))
+        .catch((err) => reject(err));
     });
   }
 
@@ -20,8 +19,8 @@ class DevicesAPI extends APIRequest {
     return new Promise((resolve, reject) => {
       return this
         .delete()
-        .then((res: AxiosResponse) => resolve(res.data))
-        .catch((err: AxiosError) => reject(err));
+        .then((res) => resolve(res.data))
+        .catch((err) => reject(err));
     });
   }
 
@@ -31,8 +30,8 @@ class DevicesAPI extends APIRequest {
     return new Promise((resolve, reject) => {
       return this
         .get()
-        .then((res: AxiosResponse) => resolve(res.data))
-        .catch((err: AxiosError) => reject(err));
+        .then((res) => resolve(res.data))
+        .catch((err) => reject(err));
     });
   }
 
@@ -40,8 +39,8 @@ class DevicesAPI extends APIRequest {
     return new Promise((resolve, reject) => {
       return this
         .put({ uuid, name })
-        .then((res: AxiosResponse) => resolve(res.data))
-        .catch((err: AxiosError) => reject(err));
+        .then((res) => resolve(res.data))
+        .catch((err) => reject(err));
     });
   }
 
@@ -51,8 +50,8 @@ class DevicesAPI extends APIRequest {
     return new Promise((resolve, reject) => {
       return this
         .patch({ name })
-        .then((res: AxiosResponse) => resolve(res.data))
-        .catch((err: AxiosError) => reject(err));
+        .then((res) => resolve(res.data))
+        .catch((err) => reject(err));
     });
   }
 
@@ -62,8 +61,8 @@ class DevicesAPI extends APIRequest {
     return new Promise((resolve, reject) => {
       return this
         .delete()
-        .then((res: AxiosResponse) => resolve(res.data))
-        .catch((err: AxiosError) => reject(err));
+        .then((res) => resolve(res.data))
+        .catch((err) => reject(err));
     });
   }
 }

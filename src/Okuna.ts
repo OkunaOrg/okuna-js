@@ -1,4 +1,5 @@
 import { OkunaOpts } from "./typings";
+import { RequestStrategy } from './utils/requestStrategies';
 
 import { CategoriesAPI } from './api/categories';
 import { DevicesAPI } from './api/devices';
@@ -6,7 +7,7 @@ import { DevicesAPI } from './api/devices';
 /**
  * @api public
  */
-class Okuna {
+class Client {
   /**
    * JavaScript API bindings for the Okuna social network
    * 
@@ -17,12 +18,14 @@ class Okuna {
   public readonly authToken: string;
   public readonly magicHeaderName: string;
   public readonly magicHeaderValue: string;
+  public readonly requestStrategy: string | RequestStrategy;
 
   constructor(opts: OkunaOpts) {
     this.apiUrl = opts.apiUrl || 'https://api.openbook.social';
     this.authToken = opts.authToken;
     this.magicHeaderName = opts.magicHeaderName || 'X-JESUS-TAKE-THE-WHEEL';
-    this.magicHeaderValue = opts.magicHeaderValue || 'jesusCantReallyDriveTho';  
+    this.magicHeaderValue = opts.magicHeaderValue || 'jesusCantReallyDriveTho';
+    this.requestStrategy = opts.requestStrategy || 'axios';
   }
 
   /**
@@ -43,5 +46,6 @@ class Okuna {
 }
 
 export {
-  Okuna
+  Client,
+  RequestStrategy
 };

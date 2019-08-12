@@ -32,16 +32,20 @@
     "nyc": "^14.1.1",
     "ts-node": "^8.3.0",
     "tslint": "^5.18.0",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6"
   },
   "dependencies": {
-    "axios": "^0.19.0"
+    "axios": "^0.19.0",
+    "es6-promise": "^4.2.8",
+    "isomorphic-fetch": "^2.2.1"
   },
   "scripts": {
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "lint": "tslint --project .",
-    "prepack": "rm -rf lib && tsc",
-    "prepare": "rm -rf lib && tsc",
+    "prepack": "rm -rf lib && tsc && webpack",
+    "prepare": "rm -rf lib && tsc && webpack",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "test:cover": "nyc --reporter=lcov --reporter=text npm run test"
   }

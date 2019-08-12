@@ -1,6 +1,7 @@
-import { RequestOpts } from '../typings';
-import { Okuna } from '../Okuna';
+import { RequestOpts, IRequestStrategy } from '../typings';
+import { Client } from '../Okuna';
 import buildUrl from './buildUrl';
+import { getRequestStrategy, RequestStrategy } from './requestStrategies';
 
 import axios, { AxiosPromise } from 'axios';
 
@@ -14,12 +15,13 @@ class APIRequest {
    * @param {RequestOpts} opts
    */
 
-  protected _okuna: Okuna;
+  protected _okuna: Client;
   protected _endpoint: string;
   protected _url: string;
   protected _paths: string[] = [];
   protected _params: object = {};
   protected _headers: object;
+  protected _api: IRequestStrategy;
 
   constructor(opts: RequestOpts) {
     this._okuna = opts.okuna;
@@ -27,6 +29,7 @@ class APIRequest {
     this._paths = [ this._endpoint ];
     this._url = `${this._okuna.apiUrl}${this._endpoint}`;
     this._headers = this.generateHeaders();
+    this._api = getRequestStrategy(this._okuna.requestStrategy);
   }
 
   /**
@@ -52,11 +55,11 @@ class APIRequest {
   /**
    * get()
    * GET request
-   * @returns {AxiosPromise}
+   * @returns {Promise<any>}
    */
-  get(): AxiosPromise {
+  get(): Promise<any> {
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
-    return axios.get(this._url, { headers: this._headers });
+    return this._api.get(this._url, { headers: this._headers });
   }
 
   /**
@@ -64,9 +67,9 @@ class APIRequest {
    * PUT request
    * @param {object} body - Request body
    */
-  put(body: object): AxiosPromise {
+  put(body: object): Promise<any> {
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
-    return axios.put(this._url, body, { headers: this._headers });
+    return this._api.put(this._url, body, { headers: this._headers });
   }
 
   /**
@@ -74,9 +77,9 @@ class APIRequest {
    * POST request
    * @param {object} body - Request body
    */
-  post(body: object): AxiosPromise {
+  post(body: object): Promise<any> {
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
-    return axios.post(this._url, body, { headers: this._headers });
+    return this._api.post(this._url, body, { headers: this._headers });
   }
 
   /**
@@ -84,19 +87,18 @@ class APIRequest {
    * PATCH request
    * @param {object} body - Request body
    */
-  patch(body: object): AxiosPromise {
+  patch(body: object): Promise<any> {
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
-    return axios.patch(this._url, body, { headers: this._headers });
+    return this._api.patch(this._url, body, { headers: this._headers });
   }
 
   /**
    * delete()
    * DELETE request
-   * @returns {AxiosPromise}
    */
-  delete(): AxiosPromise {
+  delete(): Promise<any> {
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
-    return axios.delete(this._url, { headers: this._headers });
+    return this._api.delete(this._url, { headers: this._headers });
   }
 }
 

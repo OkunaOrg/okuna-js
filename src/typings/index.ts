@@ -1,4 +1,5 @@
-import { Okuna } from '../Okuna';
+import { Client } from '../Okuna';
+import { RequestStrategy } from '../utils/requestStrategies';
 
 /**
  * Okuna API options
@@ -7,21 +8,38 @@ import { Okuna } from '../Okuna';
  * @property {string} [authToken] - The authentication token
  * @property {string} [magicHeaderName] - Magic header name (temporary)
  * @property {string} [magicHeaderValue] - Magic header value (temporary)
+ * @property 
  */
 export interface OkunaOpts {
   apiUrl?: string;
   authToken: string;
   magicHeaderName?: string;
   magicHeaderValue?: string;
+  requestStrategy?: string | RequestStrategy;
 }
 
 /**
  * Request handler options
  * @typedef {object} RequestOpts
- * @property {Okuna} [okuna] - The current Okuna instance
+ * @property {Client} [okuna] - The current Okuna instance
  * @property {string} [endpoint] - The requested endpoint
  */
 export interface RequestOpts {
-  okuna: Okuna;
+  okuna: Client;
   endpoint: string;
+}
+
+/**
+ * Request strategy interface
+ * @class RequestStrategy
+ * @property {string} name - The name of the strategy
+ */
+export interface IRequestStrategy {
+  name: string;
+
+  get(url: string, opts: object): Promise<any>;
+  post(url: string, body: object, opts: object): Promise<any>;
+  put(url: string, body: object, opts: object): Promise<any>;
+  patch(url: string, body: object, opts: object): Promise<any>;
+  delete(url: string, opts: object): Promise<any>;
 }
