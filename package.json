@@ -2,7 +2,7 @@
   "name": "okuna",
   "version": "1.0.0",
   "description": "Node.js API bindings for the Okuna social network.",
-  "main": "index.js",
+  "main": "lib/Okuna.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jozsefsallai/okuna.js.git"

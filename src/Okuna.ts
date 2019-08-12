@@ -3,6 +3,7 @@ import { RequestStrategy } from './utils/requestStrategies';
 
 import { CategoriesAPI } from './api/categories';
 import { DevicesAPI } from './api/devices';
+import { EmojisAPI } from './api/emojis';
 
 /**
  * @api public
@@ -59,6 +60,14 @@ class Client {
    */
   devices() {
     return new DevicesAPI({ okuna: this, endpoint: '/api/devices' });
+  }
+
+  /**
+   * emojis()
+   * @returns {EmojisAPI} - EmojisAPI instance
+   */
+  emojis() {
+    return new EmojisAPI({ okuna: this, endpoint: '/api/emojis' });
   }
 }
 
