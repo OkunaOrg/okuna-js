@@ -7,8 +7,8 @@
  * @returns {string} - The final URL to fetch
  */
 const buildUrl = (apiUrl: string, paths: string[], params: object): string => {
-  if (apiUrl.slice(-1) !== '/') {
-    apiUrl = `${apiUrl}/`;
+  if (apiUrl.slice(-1) === '/') {
+    apiUrl = apiUrl.slice(0, -1);
   }
 
   const _paths: string = paths.join('/');
