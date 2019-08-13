@@ -32,5 +32,27 @@ describe('utils/APIRequest', function () {
       };
       return expect(request.generateHeaders()).to.eql(expected);
     });
+
+    it('should not include auth token if not necessary', function () {
+      const request = new APIRequest({ okuna: this.client, endpoint: '/' });
+      request.requiresToken = false;
+      const expected = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'X-JESUS-TAKE-THE-WHEEL': 'jesusCantReallyDriveTho'
+      };
+      return expect(request.generateHeaders()).to.eql(expected);
+    });
+
+    it('should set custom content-type', function () {
+      const request = new APIRequest({ okuna: this.client, endpoint: '/' });
+      const expected = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Token your-public-auth-token',
+        'X-JESUS-TAKE-THE-WHEEL': 'jesusCantReallyDriveTho'
+      };
+      return expect(request.generateHeaders('application/x-www-form-urlencoded')).to.eql(expected);
+    });
   });
 });

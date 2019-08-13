@@ -42,4 +42,7 @@ export interface IRequestStrategy {
   put(url: string, body: object, opts: object): Promise<any>;
   patch(url: string, body: object, opts: object): Promise<any>;
   delete(url: string, opts: object): Promise<any>;
+  postFormdata(url: string, body: object, opts: object): Promise<any>;
+  putFormdata(url: string, body: object, opts: object): Promise<any>;
+  patchFormdata(url: string, body: object, opts: object): Promise<any>;
 }

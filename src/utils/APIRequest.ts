@@ -36,10 +36,10 @@ class APIRequest {
    * passed to Axios.
    * @returns {object}
    */
-  generateHeaders(): object {
+  generateHeaders(contentType: string | null = null): object {
     const headers: object = {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': contentType || 'application/json'
     };
 
     if (this._okuna.magicHeaderName && this._okuna.magicHeaderValue) {
@@ -109,6 +109,36 @@ class APIRequest {
     this._headers = this.generateHeaders();
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
     return this._api.delete(this._url, { headers: this._headers });
+  }
+
+  /**
+   * postFormdata()
+   * POST request (formdata)
+   */
+  postFormdata(payload: object) {
+    this._headers = this.generateHeaders('application/x-www-form-urlencoded');
+    this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
+    return this._api.postFormdata(this._url, payload, { headers: this._headers });
+  }
+
+  /**
+   * putFormdata()
+   * POST request (formdata)
+   */
+  putFormdata(payload: object) {
+    this._headers = this.generateHeaders('application/x-www-form-urlencoded');
+    this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
+    return this._api.putFormdata(this._url, payload, { headers: this._headers });
+  }
+
+  /**
+   * patchFormdata()
+   * POST request (formdata)
+   */
+  patchFormdata(payload: object) {
+    this._headers = this.generateHeaders('application/x-www-form-urlencoded');
+    this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
+    return this._api.patchFormdata(this._url, payload, { headers: this._headers });
   }
 }
 
