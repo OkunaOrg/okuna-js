@@ -4,6 +4,7 @@ import { RequestStrategy } from './utils/requestStrategies';
 import { CategoriesAPI } from './api/categories';
 import { DevicesAPI } from './api/devices';
 import { EmojisAPI } from './api/emojis';
+import { HealthAPI } from './api/health';
 
 /**
  * @api public
@@ -68,6 +69,14 @@ class Client {
    */
   emojis() {
     return new EmojisAPI({ okuna: this, endpoint: '/api/emojis' });
+  }
+
+  /**
+   * health()
+   * @returns {HealthAPI} - HealthAPI instance
+   */
+  health() {
+    return new HealthAPI({ okuna: this, endpoint: '/api/health' });
   }
 }
 
