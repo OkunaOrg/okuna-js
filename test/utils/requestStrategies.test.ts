@@ -52,5 +52,21 @@ describe('utils/requestStrategies', function () {
           });
       });
     });
+
+    describe('should have all methods', function () {
+      beforeEach(function () {
+        this.api = getRequestStrategy(MockRequestStrategy);
+      });
+
+      [
+        'get', 'post', 'put', 'patch', 'delete',
+        'postMultiform', 'putMultiform', 'patchMultiform',
+        'postUrlencoded', 'putUrlencoded', 'patchUrlencoded'
+      ].forEach(method => {
+        it(`has "${method}"`, function () {
+          return expect(this.api[method]).to.exist;
+        });
+      });
+    });
   });
 });
