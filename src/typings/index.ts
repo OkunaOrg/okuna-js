@@ -49,3 +49,11 @@ export interface IRequestStrategy {
   putUrlencoded(url: string, body: object, opts: object): Promise<any>;
   patchUrlencoded(url: string, body: object, opts: object): Promise<any>;
 }
+
+/**
+ * Request parameters
+ * @object
+ */
+export interface RequestParams {
+  [key: string]: any;
+}

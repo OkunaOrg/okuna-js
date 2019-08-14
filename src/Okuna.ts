@@ -6,6 +6,7 @@ import { CategoriesAPI } from './api/categories';
 import { DevicesAPI } from './api/devices';
 import { EmojisAPI } from './api/emojis';
 import { HealthAPI } from './api/health';
+import { UserInvitesAPI } from './api/userInvites';
 
 /**
  * @api public
@@ -86,6 +87,14 @@ class Client {
    */
   health() {
     return new HealthAPI({ okuna: this, endpoint: '/api/health' });
+  }
+
+  /**
+   * userInvites()
+   * @returns {UserInvitesAPI} - UserInvitesAPI instance
+   */
+  userInvites() {
+    return new UserInvitesAPI({ okuna: this, endpoint: '/api/invites' });
   }
 }
 

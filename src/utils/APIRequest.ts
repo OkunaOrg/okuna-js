@@ -1,4 +1,4 @@
-import { RequestOpts, IRequestStrategy } from '../typings';
+import { RequestOpts, IRequestStrategy, RequestParams } from '../typings';
 import { Client } from '../Okuna';
 import buildUrl from './buildUrl';
 import { getRequestStrategy } from './requestStrategies';
@@ -17,7 +17,7 @@ class APIRequest {
   protected _endpoint: string;
   protected _url: string;
   protected _paths: string[] = [];
-  protected _params: object = {};
+  protected _params: RequestParams = {};
   protected _headers: object = {};
   protected _api: IRequestStrategy;
   public requiresToken: boolean = true;
