@@ -16,7 +16,7 @@ const queryString = (obj: object, parent: string | null = null): string => {
 
     return parent
       ? `${parent}[${encodeURIComponent(key)}]=${encodeURIComponent(value)}`
-      : `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+      : `${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
   })
     .join('&');
 };
