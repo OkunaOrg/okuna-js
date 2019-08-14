@@ -39,14 +39,17 @@
   "dependencies": {
     "axios": "^0.19.0",
     "es6-promise": "^4.2.8",
-    "isomorphic-fetch": "^2.2.1"
+    "isomorphic-fetch": "^2.2.1",
+    "isomorphic-form-data": "^2.0.0"
   },
   "scripts": {
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "build": "rm -rf lib && tsc",
     "lint": "tslint --project .",
-    "prepack": "rm -rf lib && tsc && webpack",
-    "prepare": "rm -rf lib && tsc && webpack",
+    "prepack": "npm run build && webpack",
+    "prepare": "npm run build && webpack",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
-    "test:cover": "nyc --reporter=lcov --reporter=text npm run test"
+    "test:cover": "nyc --reporter=lcov --reporter=text npm run test",
+    "watch": "npm run build -- --watch"
   }
 }

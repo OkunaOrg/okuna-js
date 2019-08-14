@@ -1,6 +1,7 @@
 import { OkunaOpts } from "./typings";
 import { RequestStrategy } from './utils/requestStrategies';
 
+import { AuthAPI } from './api/auth';
 import { CategoriesAPI } from './api/categories';
 import { DevicesAPI } from './api/devices';
 import { EmojisAPI } from './api/emojis';
@@ -45,6 +46,14 @@ class Client {
       name: name || 'X-JESUS-TAKE-THE-WHEEL',
       value: value || 'jesusCantReallyDriveTho'
     };
+  }
+
+  /**
+   * auth()
+   * @returns { AuthAPI } - AuthAPI instance
+   */
+  auth() {
+    return new AuthAPI({ okuna: this, endpoint: '/api/auth' });
   }
 
   /**

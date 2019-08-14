@@ -112,33 +112,63 @@ class APIRequest {
   }
 
   /**
-   * postFormdata()
-   * POST request (formdata)
+   * postMultiform()
+   * POST request (Multiform)
    */
-  postFormdata(payload: object) {
-    this._headers = this.generateHeaders('application/x-www-form-urlencoded');
+  postMultiform(payload: object) {
+    this._headers = this.generateHeaders('multipart/form-data');
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
-    return this._api.postFormdata(this._url, payload, { headers: this._headers });
+    return this._api.postMultiform(this._url, payload, { headers: this._headers });
   }
 
   /**
-   * putFormdata()
-   * POST request (formdata)
+   * putMultiform()
+   * POST request (Multiform)
    */
-  putFormdata(payload: object) {
-    this._headers = this.generateHeaders('application/x-www-form-urlencoded');
+  putMultiform(payload: object) {
+    this._headers = this.generateHeaders('multipart/form-data');
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
-    return this._api.putFormdata(this._url, payload, { headers: this._headers });
+    return this._api.putMultiform(this._url, payload, { headers: this._headers });
   }
 
   /**
-   * patchFormdata()
-   * POST request (formdata)
+   * patchMultiform()
+   * POST request (Multiform)
    */
-  patchFormdata(payload: object) {
+  patchMultiform(payload: object) {
+    this._headers = this.generateHeaders('multipart/form-data');
+    this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
+    return this._api.patchMultiform(this._url, payload, { headers: this._headers });
+  }
+
+  /**
+   * postUrlencoded()
+   * POST request (urlencoded)
+   */
+  postUrlencoded(payload: object) {
     this._headers = this.generateHeaders('application/x-www-form-urlencoded');
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
-    return this._api.patchFormdata(this._url, payload, { headers: this._headers });
+    return this._api.postUrlencoded(this._url, payload, { headers: this._headers });
+  }
+
+  /**
+   * putUrlencoded()
+   * POST request (urlencoded)
+   */
+  putUrlencoded(payload: object) {
+    this._headers = this.generateHeaders('application/x-www-form-urlencoded');
+    this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
+    return this._api.putUrlencoded(this._url, payload, { headers: this._headers });
+  }
+
+  /**
+   * postUrlencoded()
+   * POST request (urlencoded)
+   */
+  patchUrlencoded(payload: object) {
+    this._headers = this.generateHeaders('application/x-www-form-urlencoded');
+    this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
+    return this._api.patchUrlencoded(this._url, payload, { headers: this._headers });
   }
 }
 

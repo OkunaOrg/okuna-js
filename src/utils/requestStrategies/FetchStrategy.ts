@@ -1,8 +1,10 @@
 import RequestStrategy from './core';
+import queryString from '../queryString';
 
 import es6promise from 'es6-promise';
 es6promise.polyfill();
 
+import 'isomorphic-form-data';
 import 'isomorphic-fetch';
 
 /**
@@ -131,7 +133,7 @@ class FetchStrategy extends RequestStrategy {
     });
   }
 
-  postMultipart(url: string, body: object, opts: object): Promise<any> {
+  postMultiform(url: string, body: object, opts: object): Promise<any> {
     return new Promise((resolve, reject) => {
       const data = new FormData();
       Object.keys(body).forEach(key => {
@@ -160,7 +162,7 @@ class FetchStrategy extends RequestStrategy {
     });
   }
 
-  putMultipart(url: string, body: object, opts: object): Promise<any> {
+  putMultiform(url: string, body: object, opts: object): Promise<any> {
     return new Promise((resolve, reject) => {
       const data = new FormData();
       Object.keys(body).forEach(key => {
@@ -189,7 +191,7 @@ class FetchStrategy extends RequestStrategy {
     });
   }
 
-  patchMultipart(url: string, body: object, opts: object): Promise<any> {
+  patchMultiform(url: string, body: object, opts: object): Promise<any> {
     return new Promise((resolve, reject) => {
       const data = new FormData();
       Object.keys(body).forEach(key => {
@@ -199,6 +201,78 @@ class FetchStrategy extends RequestStrategy {
       return fetch(url, {
         method: 'PATCH',
         body: data,
+        ...opts
+      })
+        .then((response) => {
+          if (!response.ok) {
+            return reject(response);
+          }
+
+          return response.json();
+        })
+        .then(json => {
+          return {
+            data: json
+          };
+        })
+        .then(response => resolve(response))
+        .catch(err => reject(err));
+    });
+  }
+
+  postUrlencoded(url: string, body: object, opts: object): Promise<any> {
+    return new Promise((resolve, reject) => {
+      return fetch(url, {
+        method: 'POST',
+        body: queryString(body),
+        ...opts
+      })
+        .then((response) => {
+          if (!response.ok) {
+            return reject(response);
+          }
+
+          return response.json();
+        })
+        .then(json => {
+          return {
+            data: json
+          };
+        })
+        .then(response => resolve(response))
+        .catch(err => reject(err));
+    });
+  }
+
+  putUrlencoded(url: string, body: object, opts: object): Promise<any> {
+    return new Promise((resolve, reject) => {
+      return fetch(url, {
+        method: 'PUT',
+        body: queryString(body),
+        ...opts
+      })
+        .then((response) => {
+          if (!response.ok) {
+            return reject(response);
+          }
+
+          return response.json();
+        })
+        .then(json => {
+          return {
+            data: json
+          };
+        })
+        .then(response => resolve(response))
+        .catch(err => reject(err));
+    });
+  }
+
+  patchUrlencoded(url: string, body: object, opts: object): Promise<any> {
+    return new Promise((resolve, reject) => {
+      return fetch(url, {
+        method: 'PATCH',
+        body: queryString(body),
         ...opts
       })
         .then((response) => {

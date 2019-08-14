@@ -16,8 +16,8 @@ const buildUrl = (apiUrl: string, paths: string[], params: object): string => {
     .map((key: string) => `${key}=${(params as any)[key]}`)
     .join('&');
   return _params
-    ? `${apiUrl}${_paths}?${_params}`
-    : `${apiUrl}${_paths}`;
+    ? `${apiUrl}${_paths}/?${_params}`
+    : `${apiUrl}${_paths}/`;
 };
 
 export default buildUrl;
