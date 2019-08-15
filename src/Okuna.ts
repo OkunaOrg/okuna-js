@@ -10,6 +10,7 @@ import { EmojisAPI } from './api/emojis';
 import { FollowsAPI } from './api/follows';
 import { HealthAPI } from './api/health';
 import { ListsAPI } from './api/lists';
+import { ModerationAPI } from './api/moderation';
 import { NotificationsAPI } from './api/notifications';
 import { PostsAPI } from './api/posts';
 import { UserInvitesAPI } from './api/userInvites';
@@ -129,6 +130,14 @@ class Client {
    */
   lists() {
     return new ListsAPI({ okuna: this, endpoint: '/api/lists' });
+  }
+
+  /**
+   * moderation()
+   * @returns {ModerationAPI} - ModerationAPI instance
+   */
+  moderation() {
+    return new ModerationAPI({ okuna: this, endpoint: '/api/moderation' });
   }
 
   /**
