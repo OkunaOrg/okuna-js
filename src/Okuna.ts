@@ -25,14 +25,14 @@ class Client {
    */
 
   public readonly apiUrl: string;
-  public readonly authToken: string;
+  public authToken: string | null;
   public readonly magicHeaderName: string | null | undefined;
   public readonly magicHeaderValue: string | null | undefined;
   public readonly requestStrategy: string | RequestStrategy;
 
   constructor(opts: OkunaOpts) {
     this.apiUrl = opts.apiUrl || 'https://api.openbook.social';
-    this.authToken = opts.authToken;
+    this.authToken = opts.authToken || null;
 
     const magicHeader = this._buildMagicHeader(opts.magicHeaderName, opts.magicHeaderValue);
     this.magicHeaderName = magicHeader.name;
@@ -53,6 +53,10 @@ class Client {
       name: name || 'X-JESUS-TAKE-THE-WHEEL',
       value: value || 'jesusCantReallyDriveTho'
     };
+  }
+
+  updateAuthToken(token: string) {
+    this.authToken = token;
   }
 
   /**
