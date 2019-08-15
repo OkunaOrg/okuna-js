@@ -7,7 +7,7 @@
 export interface ICreateCircle {
   name: string;
   color?: string;
-};
+}
 
 /**
  * Parameters for circles().updateCircle()
@@ -19,4 +19,4 @@ export interface IUpdateCircle {
   name?: string;
   color?: string;
   usernames?: string[];
-};
+}

@@ -15,7 +15,7 @@ export interface IGetTimelinePosts {
   count?: number;
   username?: string;
   authenticatedRequest: boolean;
-};
+}
 
 /**
  * Parameters for posts().createPost()
@@ -30,7 +30,7 @@ export interface ICreatePost {
   circleIds?: number[];
   image?: File;
   video?: File;
-};
+}
 
 /**
  * Parameters for posts().editPost()
@@ -41,4 +41,4 @@ export interface ICreatePost {
 export interface IEditPost {
   uuid: string;
   text: string;
-};
+}
