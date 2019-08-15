@@ -8,6 +8,7 @@ import { CirclesAPI } from './api/circles';
 import { DevicesAPI } from './api/devices';
 import { EmojisAPI } from './api/emojis';
 import { HealthAPI } from './api/health';
+import { ListsAPI } from './api/lists';
 import { PostsAPI } from './api/posts';
 import { UserInvitesAPI } from './api/userInvites';
 
@@ -106,6 +107,14 @@ class Client {
    */
   health() {
     return new HealthAPI({ okuna: this, endpoint: '/api/health' });
+  }
+
+  /**
+   * lists()
+   * @returns {ListsAPI} - ListsAPI instance
+   */
+  lists() {
+    return new ListsAPI({ okuna: this, endpoint: '/api/lists' });
   }
 
   /**
