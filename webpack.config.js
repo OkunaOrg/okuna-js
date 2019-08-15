@@ -15,7 +15,7 @@ const generateConfig = name => {
       path: path.resolve(__dirname, 'dist'),
       filename: `${name}.js`,
       sourceMapFilename: `${name}.map`,
-      library: 'okuna',
+      library: 'Okuna',
       libraryTarget: 'umd'
     },
     devtool: 'source-map'
