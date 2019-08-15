@@ -57,3 +57,14 @@ export interface IRequestStrategy {
 export interface RequestParams {
   [key: string]: any;
 }
+
+/**
+ * Limitation parameters
+ * @object
+ * @property {number} maxId - the maximum ID to fetch
+ * @property {number} count - the maximum number of elements to fetch
+ */
+export interface LimitationParams {
+  maxId?: number;
+  count?: number;
+}
