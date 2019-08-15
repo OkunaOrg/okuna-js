@@ -1,6 +1,6 @@
 /**
  * Parameters for certain methods in follows()
- * @typedef object IUserFollows
+ * @typedef {object} IUserFollows
  * @property {string} username - the username to follow
  * @property {number[]} listIds - the list IDs to which the user should be added
  */

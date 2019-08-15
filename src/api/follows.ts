@@ -1,5 +1,5 @@
 import { APIRequest } from "../utils/APIRequest";
-import { RequestOpts } from '../typings/index';
+import { RequestOpts } from '../typings';
 import { IUserFollows } from '../typings/api/follows';
 
 class FollowsAPI extends APIRequest {

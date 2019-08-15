@@ -1,6 +1,6 @@
 /**
  * Parameters for lists().createList()
- * @typedef object ICreateList
+ * @typedef {object} ICreateList
  * @property {string} name
  * @property {number} emojiId
  */
@@ -11,7 +11,7 @@ export interface ICreateList {
 
 /**
  * Parameters for lists().updateList()
- * @typedef object IUpdateList
+ * @typedef {object} IUpdateList
  * @property {string} name
  * @property {number} emojiId
  * @property {string[]} usernames

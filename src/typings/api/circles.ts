@@ -1,6 +1,6 @@
 /**
  * Parameters for circles().createCircle()
- * @typedef object ICreateCircle
+ * @typedef {object} ICreateCircle
  * @property {string} name
  * @property {string} color
  */
@@ -11,7 +11,7 @@ export interface ICreateCircle {
 
 /**
  * Parameters for circles().updateCircle()
- * @typedef object IUpdateCircle
+ * @typedef {object} IUpdateCircle
  * @property {string} name
  * @property {string} color
  */

@@ -1,6 +1,6 @@
 /**
  * Parameters for posts().getTimelinePosts()
- * @typedef object IGetTimelinePosts
+ * @typedef {object} IGetTimelinePosts
  * @property {number[]} listIds - list IDs to filter posts on
  * @property {number[]} circleIds - circle IDs to filter posts on
  * @property {number} maxId - maximum post ID
@@ -19,7 +19,7 @@ export interface IGetTimelinePosts {
 
 /**
  * Parameters for posts().createPost()
- * @typedef object ICreatePost
+ * @typedef {object} ICreatePost
  * @property {string} text - the full text of the post
  * @property {number[]} circleIds - an array of circle IDs that should have access to the post
  * @property {File} image - an image file object
@@ -34,7 +34,7 @@ export interface ICreatePost {
 
 /**
  * Parameters for posts().editPost()
- * @typedef object IEditPost
+ * @typedef {object} IEditPost
  * @property {string} uuid - the universally unique identifier of the post
  * @property {string} text - the updated full text of the post
  */

@@ -1,5 +1,5 @@
 import { APIRequest } from "../utils/APIRequest";
-import { RequestOpts } from '../typings/index';
+import { RequestOpts } from '../typings';
 import { ICreateCircle, IUpdateCircle } from '../typings/api/circles';
 
 class CirclesAPI extends APIRequest {
