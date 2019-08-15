@@ -7,6 +7,7 @@ import { ConnectionsAPI } from './api/connections';
 import { CirclesAPI } from './api/circles';
 import { DevicesAPI } from './api/devices';
 import { EmojisAPI } from './api/emojis';
+import { FollowsAPI } from './api/follows';
 import { HealthAPI } from './api/health';
 import { ListsAPI } from './api/lists';
 import { PostsAPI } from './api/posts';
@@ -99,6 +100,14 @@ class Client {
    */
   emojis() {
     return new EmojisAPI({ okuna: this, endpoint: '/api/emojis' });
+  }
+
+  /**
+   * follows()
+   * @returns {FollowsAPI} - FollowsAPI instance
+   */
+  follows() {
+    return new FollowsAPI({ okuna: this, endpoint: '/api/follows' });
   }
 
   /**
