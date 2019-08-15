@@ -3,6 +3,7 @@ import { RequestStrategy } from './utils/requestStrategies';
 
 import { AuthAPI } from './api/auth';
 import { CategoriesAPI } from './api/categories';
+import { CirclesAPI } from './api/circles';
 import { DevicesAPI } from './api/devices';
 import { EmojisAPI } from './api/emojis';
 import { HealthAPI } from './api/health';
@@ -64,6 +65,14 @@ class Client {
    */
   categories() {
     return new CategoriesAPI({ okuna: this, endpoint: '/api/categories' });
+  }
+
+  /**
+   * circles()
+   * @returns {CirclesAPI} - CirclesAPI instance
+   */
+  circles() {
+    return new CirclesAPI({ okuna: this, endpoint: '/api/circles' });
   }
 
   /**
