@@ -200,7 +200,7 @@ class CommunitiesAPI extends APIRequest {
       payload.invites_enabled = opts.invitesEnabled;
     }
 
-    this.patchUrlencoded(payload);
+    return this.patchUrlencoded(payload);
   }
 
   async updateCommunityAvatar(name: string, avatar: File) {

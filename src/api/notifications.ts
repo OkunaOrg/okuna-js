@@ -6,7 +6,7 @@ class NotificationsAPI extends APIRequest {
     super(opts);
   }
 
-  getNotifications(opts: LimitationParams) {
+  async getNotifications(opts: LimitationParams) {
     if (opts.maxId) {
       this._params.maxId = opts.maxId;
     }
@@ -18,29 +18,29 @@ class NotificationsAPI extends APIRequest {
     return this.get();
   }
 
-  readNotifications(opts: LimitationParams) {
+  async readNotifications(opts: LimitationParams) {
     this._paths.push('read');
 
     return this.post(opts);
   }
 
-  deleteNotifications() {
+  async deleteNotifications() {
     return this.delete();
   }
 
-  deleteNotification(id: number) {
+  async deleteNotification(id: number) {
     this._paths.push(id.toString());
 
     return this.delete();
   }
 
-  getNotification(id: number) {
+  async getNotification(id: number) {
     this._paths.push(id.toString());
 
     return this.get();
   }
 
-  readNotification(id: number) {
+  async readNotification(id: number) {
     this._paths.push(id.toString());
 
     return this.post({});

@@ -11,7 +11,7 @@ class ModerationAPI extends APIRequest {
     super(opts);
   }
 
-  getGlobalModeratedObjects(opts: IGetGlobalModeratedObjects) {
+  async getGlobalModeratedObjects(opts: IGetGlobalModeratedObjects) {
     this._paths.push('moderated-objects', 'global');
 
     if (opts.count !== undefined) {
@@ -37,7 +37,7 @@ class ModerationAPI extends APIRequest {
     return this.get();
   }
 
-  getModeratedObjectLogs(opts: IModeratedObject) {
+  async getModeratedObjectLogs(opts: IModeratedObject) {
     this._paths.push('moderated-objects', encodeURIComponent(opts.id), 'logs');
 
     if (opts.count !== undefined) {
@@ -51,7 +51,7 @@ class ModerationAPI extends APIRequest {
     return this.get();
   }
 
-  getModeratedObjectReports(opts: IModeratedObject) {
+  async getModeratedObjectReports(opts: IModeratedObject) {
     this._paths.push('moderated-objects', encodeURIComponent(opts.id), 'reports');
 
     if (opts.count !== undefined) {
@@ -65,13 +65,13 @@ class ModerationAPI extends APIRequest {
     return this.get();
   }
 
-  getModerationCategories() {
+  async getModerationCategories() {
     this._paths.push('categories');
 
     return this.get();
   }
 
-  getUserModerationPenalties(opts: LimitationParams) {
+  async getUserModerationPenalties(opts: LimitationParams) {
     this._paths.push('user', 'penalties');
 
     if (opts.count !== undefined) {
@@ -85,7 +85,7 @@ class ModerationAPI extends APIRequest {
     return this.get();
   }
 
-  getUserPendingModeratedObjectsCommunities(opts: LimitationParams) {
+  async getUserPendingModeratedObjectsCommunities(opts: LimitationParams) {
     this._paths.push('user', 'pending-moderated-objects-communities');
 
     if (opts.count !== undefined) {
@@ -99,31 +99,31 @@ class ModerationAPI extends APIRequest {
     return this.get();
   }
 
-  verifyModeratedObject(id: number) {
+  async verifyModeratedObject(id: number) {
     this._paths.push('moderated-objects', id.toString(), 'verify');
 
     return this.post({});
   }
 
-  unverifyModeratedObject(id: number) {
+  async unverifyModeratedObject(id: number) {
     this._paths.push('moderated-objects', id.toString(), 'unverify');
 
     return this.post({});
   }
 
-  approveModeratedObject(id: number) {
+  async approveModeratedObject(id: number) {
     this._paths.push('moderated-objects', id.toString(), 'approve');
 
     return this.post({});
   }
 
-  rejectModeratedObject(id: number) {
+  async rejectModeratedObject(id: number) {
     this._paths.push('moderated-objects', id.toString(), 'reject');
 
     return this.post({});
   }
 
-  updateModeratedObject(id: number, opts: IUpdateModeratedObject) {
+  async updateModeratedObject(id: number, opts: IUpdateModeratedObject) {
     this._paths.push('moderated-objects', id.toString());
 
     return this.post(opts);

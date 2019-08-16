@@ -7,33 +7,33 @@ class ListsAPI extends APIRequest {
     super(opts);
   }
 
-  getLists() {
+  async getLists() {
     return this.get();
   }
 
-  createList(opts: ICreateList) {
+  async createList(opts: ICreateList) {
     return this.put(opts);
   }
 
-  updateList(id: number, opts: IUpdateList) {
+  async updateList(id: number, opts: IUpdateList) {
     this._paths.push(id.toString());
 
     return this.patch(opts);
   }
 
-  deleteList(id: number) {
+  async deleteList(id: number) {
     this._paths.push(id.toString());
 
     return this.delete();
   }
 
-  getList(id: number) {
+  async getList(id: number) {
     this._paths.push(id.toString());
 
     return this.get();
   }
 
-  checkNameIsAvailable(name: string) {
+  async checkNameIsAvailable(name: string) {
     this._paths.push('name-check');
 
     return this.post({ name });

@@ -7,19 +7,19 @@ class FollowsAPI extends APIRequest {
     super(opts);
   }
 
-  follow(opts: IUserFollows) {
+  async follow(opts: IUserFollows) {
     this._paths.push('follow');
 
     return this.post(opts);
   }
 
-  update(opts: IUserFollows) {
+  async update(opts: IUserFollows) {
     this._paths.push('update');
 
     return this.post(opts);
   }
 
-  unfollow(username: string) {
+  async unfollow(username: string) {
     this._paths.push('unfollow');
 
     return this.post({ username });
