@@ -7,7 +7,9 @@
   ],
   "exclude": [
     "**/*.d.ts",
-    "src/typings/**/*.ts"
+    "src/typings/**/*.ts",
+    "src/utils/requestStrategies/AxiosStrategy.ts",
+    "src/utils/requestStrategies/FetchStrategy.ts"
   ],
   "all": true
 }

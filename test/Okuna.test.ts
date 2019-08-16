@@ -1,8 +1,20 @@
 import { expect } from 'chai';
 import { Client } from '../src/Okuna';
 
+import { AuthAPI } from '../src/api/auth';
 import { CategoriesAPI } from '../src/api/categories';
+import { CirclesAPI } from '../src/api/circles';
+import { CommunitiesAPI } from '../src/api/communities';
+import { ConnectionsAPI } from '../src/api/connections';
 import { DevicesAPI } from '../src/api/devices';
+import { EmojisAPI } from '../src/api/emojis';
+import { FollowsAPI } from '../src/api/follows';
+import { HealthAPI } from '../src/api/health';
+import { ListsAPI } from '../src/api/lists';
+import { ModerationAPI } from '../src/api/moderation';
+import { NotificationsAPI } from '../src/api/notifications';
+import { PostsAPI } from '../src/api/posts';
+import { UserInvitesAPI } from '../src/api/userInvites';
 
 describe('Client', function () {
   describe('@constructor', function () {
@@ -15,6 +27,11 @@ describe('Client', function () {
       it('should set custom API url', function () {
         const client = new Client({ apiUrl: 'http://localhost:8000', authToken: 'my-token' });
         return expect(client.apiUrl).to.eql('http://localhost:8000');
+      });
+
+      it('should set token to null if not provided', function () {
+        const client = new Client();
+        return expect(client.authToken).to.be.null;
       });
     });
 
@@ -76,17 +93,73 @@ describe('Client', function () {
     });
   });
 
+  describe('#updateAuthToken', function () {
+    it('should update', function () {
+      const client = new Client({ authToken: 'old-token' });
+      client.updateAuthToken('my-new-token');
+      return expect(client.authToken).to.eql('my-new-token');
+    });
+  });
+
   describe('APIs', function () {
     beforeEach(function () {
       this.client = new Client({ authToken: 'my-token' });
+    });
+
+    it('#auth', function () {
+      return expect(this.client.auth()).to.be.instanceof(AuthAPI);
     });
 
     it('#categories', function () {
       return expect(this.client.categories()).to.be.instanceof(CategoriesAPI);
     });
 
+    it('#circles', function () {
+      return expect(this.client.circles()).to.be.instanceof(CirclesAPI);
+    });
+
+    it('#communities', function () {
+      return expect(this.client.communities()).to.be.instanceof(CommunitiesAPI);
+    });
+
+    it('#connections', function () {
+      return expect(this.client.connections()).to.be.instanceof(ConnectionsAPI);
+    });
+
     it('#devices', function () {
       return expect(this.client.devices()).to.be.instanceof(DevicesAPI);
+    });
+
+    it('#emojis', function () {
+      return expect(this.client.emojis()).to.be.instanceof(EmojisAPI);
+    });
+
+    it('#follows', function () {
+      return expect(this.client.follows()).to.be.instanceof(FollowsAPI);
+    });
+
+    it('#health', function () {
+      return expect(this.client.health()).to.be.instanceof(HealthAPI);
+    });
+
+    it('#lists', function () {
+      return expect(this.client.lists()).to.be.instanceof(ListsAPI);
+    });
+
+    it('#moderation', function () {
+      return expect(this.client.moderation()).to.be.instanceof(ModerationAPI);
+    });
+
+    it('#notifications', function () {
+      return expect(this.client.notifications()).to.be.instanceof(NotificationsAPI);
+    });
+
+    it('#posts', function () {
+      return expect(this.client.posts()).to.be.instanceof(PostsAPI);
+    });
+
+    it('#userInvites', function () {
+      return expect(this.client.userInvites()).to.be.instanceof(UserInvitesAPI);
     });
   });
 });

@@ -8,5 +8,5 @@ export interface CategoriesAPI extends APIRequest {
    * `GET /api/categories/` - Promises to return a list of categories
    * @returns - an array of categories
    */
-  getCategories(): Promise<any>
+  getCategories(): Promise<any>;
 }

@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import { APIRequest } from '../../src/utils/APIRequest';
 import { Client } from '../../src/Okuna';
+import MockRequestStrategy = require('../support/MockRequestStrategy');
 
 describe('utils/APIRequest', function () {
   beforeEach(function () {
@@ -53,6 +54,38 @@ describe('utils/APIRequest', function () {
         'X-JESUS-TAKE-THE-WHEEL': 'jesusCantReallyDriveTho'
       };
       return expect(request.generateHeaders('application/x-www-form-urlencoded')).to.eql(expected);
+    });
+
+    it('should throw if authToken is necessary but not provided', function () {
+      const client = new Client();
+      const request = new APIRequest({ okuna: client, endpoint: '/' });
+      return expect(() => request.generateHeaders()).to.throw('Authorization token not provided.');
+    });
+
+    describe('methods', function () {
+      beforeEach(function () {
+        this.client = new Client({ authToken: 'my-token', requestStrategy: MockRequestStrategy });
+        this.request = new APIRequest({ okuna: this.client, endpoint: '/' });
+      });
+
+      afterEach(function () {
+        this.request._paths = [];
+      });
+
+      [
+        'get', 'post', 'put', 'patch', 'delete',
+        'postMultiform', 'putMultiform', 'patchMultiform',
+        'postUrlencoded', 'putUrlencoded', 'patchUrlencoded'
+      ].forEach(method => {
+        it(`#${method} - resolve`, function () {
+          return expect(this.request[method]()).to.eventually.not.be.rejected;
+        });
+
+        it(`#${method} - reject`, function () {
+          this.request._paths.push('bad');
+          return expect(this.request[method]()).to.eventually.be.rejected;
+        });
+      });
     });
   });
 });

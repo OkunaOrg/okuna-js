@@ -14,9 +14,14 @@ describe('utils/requestStrategies', function () {
 
   describe('getRequestStrategy', function () {
     describe('on string input', function () {
-      it('should return strategy if it is known', function () {
+      it('should return axios, if it is provided', function () {
         const strategy = getRequestStrategy('axios');
         return expect(strategy.name).to.eql('axios');
+      });
+
+      it('should return fetch, if it is provided', function () {
+        const strategy = getRequestStrategy('fetch');
+        return expect(strategy.name).to.eql('fetch');
       });
 
       it('should throw on invalid input', function () {
