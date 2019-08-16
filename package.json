@@ -36,6 +36,7 @@
     "nyc": "^14.1.1",
     "ts-node": "^8.3.0",
     "tslint": "^5.18.0",
+    "typedoc": "^0.15.0",
     "typescript": "^3.5.3",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6"
@@ -47,8 +48,9 @@
     "isomorphic-form-data": "^2.0.0"
   },
   "scripts": {
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "build": "rm -rf lib && tsc",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "docs": "typedoc --name \"Okuna.js\" --out ./docs --mode file",
     "lint": "tslint --project .",
     "prepack": "npm run build && webpack",
     "prepare": "npm run build && webpack",
