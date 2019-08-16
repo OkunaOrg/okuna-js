@@ -68,3 +68,20 @@ export interface LimitationParams {
   maxId?: number;
   count?: number;
 }
+
+/**
+ * Limitation parameters with extra properties
+ * @object
+ * @property {number} countMax - maximum result count
+ * @property {number} countMin - minimum result count
+ * @property {number} maxId - maximum result ID
+ * @property {number} minId - minimum result ID
+ * @property {string} sort - sort logic
+ */
+export interface ExtraLimitationParams {
+  countMax?: number;
+  countMin?: number;
+  maxId?: number;
+  minId?: number;
+  sort?: string;
+}
