@@ -10,45 +10,25 @@ class ConnectionsAPI extends APIRequest {
   connect(opts: IUserConnection) {
     this._paths.push('connect');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post(opts)
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post(opts);
   }
 
   confirm(opts: IUserConnection) {
     this._paths.push('confirm');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post(opts)
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post(opts);
   }
 
   update(opts: IUserConnection) {
     this._paths.push('update');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post(opts)
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post(opts);
   }
 
   disconnect(username: string) {
     this._paths.push('disconnect');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post({ username })
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post({ username });
   }
 }
 

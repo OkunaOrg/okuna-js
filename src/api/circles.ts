@@ -8,12 +8,7 @@ class CirclesAPI extends APIRequest {
   }
 
   async getCircles() {
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   async createCircle(opts: ICreateCircle) {
@@ -25,56 +20,31 @@ class CirclesAPI extends APIRequest {
       body.color = opts.color;
     }
 
-    return new Promise((resolve, reject) => {
-      return this
-        .put(body)
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.put(body);
   }
 
   async updateCircle(id: number, opts: IUpdateCircle) {
     this._paths.push(id.toString());
 
-    return new Promise((resolve, reject) => {
-      return this
-        .patch(opts)
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.patch(opts);
   }
 
   async getCircle(id: number) {
     this._paths.push(id.toString());
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   async deleteCircle(id: number) {
     this._paths.push(id.toString());
 
-    return new Promise((resolve, reject) => {
-      return this
-        .delete()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.delete();
   }
 
   async checkNameIsAvailable(name: string) {
     this._paths.push('name-check');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post({ name })
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post({ name });
   }
 }
 

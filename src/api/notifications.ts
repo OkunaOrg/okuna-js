@@ -15,65 +15,35 @@ class NotificationsAPI extends APIRequest {
       this._params.count = opts.count;
     }
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   readNotifications(opts: LimitationParams) {
     this._paths.push('read');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post(opts)
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post(opts);
   }
 
   deleteNotifications() {
-    return new Promise((resolve, reject) => {
-      return this
-        .delete()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.delete();
   }
 
   deleteNotification(id: number) {
     this._paths.push(id.toString());
 
-    return new Promise((resolve, reject) => {
-      return this
-        .delete()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.delete();
   }
 
   getNotification(id: number) {
     this._paths.push(id.toString());
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   readNotification(id: number) {
     this._paths.push(id.toString());
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post({})
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post({});
   }
 }
 

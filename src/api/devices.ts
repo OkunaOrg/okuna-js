@@ -7,63 +7,33 @@ class DevicesAPI extends APIRequest {
   }
 
   async getDevices(): Promise<any> {
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   async deleteDevices(): Promise<any> {
-    return new Promise((resolve, reject) => {
-      return this
-        .delete()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.delete();
   }
 
   async getDevice(uuid: string): Promise<any> {
     this._paths.push(encodeURIComponent(uuid));
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   async createDevice(uuid: string, name: string): Promise<any> {
-    return new Promise((resolve, reject) => {
-      return this
-        .put({ uuid, name })
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.put({ uuid, name });
   }
 
   async updateDevice(uuid: string, name: string): Promise<any> {
     this._paths.push(encodeURIComponent(uuid));
 
-    return new Promise((resolve, reject) => {
-      return this
-        .patch({ name })
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.patch({ name });
   }
 
   async deleteDevice(uuid: string) {
     this._paths.push(encodeURIComponent(uuid));
 
-    return new Promise((resolve, reject) => {
-      return this
-        .delete()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.delete();
   }
 }
 

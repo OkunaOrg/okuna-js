@@ -8,65 +8,35 @@ class ListsAPI extends APIRequest {
   }
 
   getLists() {
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   createList(opts: ICreateList) {
-    return new Promise((resolve, reject) => {
-      return this
-        .put(opts)
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.put(opts);
   }
 
   updateList(id: number, opts: IUpdateList) {
     this._paths.push(id.toString());
 
-    return new Promise((resolve, reject) => {
-      return this
-        .patch(opts)
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.patch(opts);
   }
 
   deleteList(id: number) {
     this._paths.push(id.toString());
 
-    return new Promise((resolve, reject) => {
-      return this
-        .delete()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.delete();
   }
 
   getList(id: number) {
     this._paths.push(id.toString());
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   checkNameIsAvailable(name: string) {
     this._paths.push('name-check');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post({ name })
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post({ name });
   }
 }
 

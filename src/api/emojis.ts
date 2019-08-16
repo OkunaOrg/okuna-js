@@ -9,12 +9,7 @@ class EmojisAPI extends APIRequest {
   async getGroups(): Promise<any> {
     this._paths.push('groups');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 }
 

@@ -34,12 +34,7 @@ class ModerationAPI extends APIRequest {
       this._params.verified = opts.verified;
     }
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   getModeratedObjectLogs(opts: IModeratedObject) {
@@ -53,12 +48,7 @@ class ModerationAPI extends APIRequest {
       this._params.max_id = opts.maxId;
     }
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   getModeratedObjectReports(opts: IModeratedObject) {
@@ -72,23 +62,13 @@ class ModerationAPI extends APIRequest {
       this._params.max_id = opts.maxId;
     }
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   getModerationCategories() {
     this._paths.push('categories');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   getUserModerationPenalties(opts: LimitationParams) {
@@ -102,12 +82,7 @@ class ModerationAPI extends APIRequest {
       this._params.max_id = opts.maxId;
     }
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   getUserPendingModeratedObjectsCommunities(opts: LimitationParams) {
@@ -121,67 +96,37 @@ class ModerationAPI extends APIRequest {
       this._params.max_id = opts.maxId;
     }
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   verifyModeratedObject(id: number) {
     this._paths.push('moderated-objects', id.toString(), 'verify');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post({})
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post({});
   }
 
   unverifyModeratedObject(id: number) {
     this._paths.push('moderated-objects', id.toString(), 'unverify');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post({})
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post({});
   }
 
   approveModeratedObject(id: number) {
     this._paths.push('moderated-objects', id.toString(), 'approve');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post({})
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post({});
   }
 
   rejectModeratedObject(id: number) {
     this._paths.push('moderated-objects', id.toString(), 'reject');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post({})
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post({});
   }
 
   updateModeratedObject(id: number, opts: IUpdateModeratedObject) {
     this._paths.push('moderated-objects', id.toString());
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post(opts)
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post(opts);
   }
 }
 

@@ -13,23 +13,13 @@ class UserInvitesAPI extends APIRequest {
       (body as any)['nickname'] = nickname;
     }
 
-    return new Promise((resolve, reject) => {
-      return this
-        .putUrlencoded(body)
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.putUrlencoded(body);
   }
 
   async update(id: number, nickname: string) {
     this._paths.push(id.toString());
 
-    return new Promise((resolve, reject) => {
-      return this
-        .patchUrlencoded({ nickname })
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.patchUrlencoded({ nickname });
   }
 
   async getUserInvites(
@@ -49,12 +39,7 @@ class UserInvitesAPI extends APIRequest {
       this._params['pending'] = pending;
     }
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   async searchUserInvite(
@@ -73,34 +58,19 @@ class UserInvitesAPI extends APIRequest {
       this._params['pending'] = pending;
     }
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   async deleteUserInvite(id: number) {
     this._paths.push(id.toString());
 
-    return new Promise((resolve, reject) => {
-      return this
-        .delete()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.delete();
   }
 
   async email(id: number, email: string) {
     this._paths.push(id.toString(), 'email');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post({ email })
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post({ email });
   }
 }
 

@@ -65,7 +65,11 @@ class APIRequest {
   get(): Promise<any> {
     this._headers = this.generateHeaders();
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
-    return this._api.get(this._url, { headers: this._headers });
+    return new Promise((resolve, reject) => {
+      return this._api.get(this._url, { headers: this._headers })
+        .then((res) => resolve(res.data))
+        .catch((err) => reject(err));
+    });
   }
 
   /**
@@ -76,7 +80,11 @@ class APIRequest {
   put(body: object): Promise<any> {
     this._headers = this.generateHeaders();
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
-    return this._api.put(this._url, body, { headers: this._headers });
+    return new Promise((resolve, reject) => {
+      return this._api.put(this._url, body, { headers: this._headers })
+        .then((res) => resolve(res.data))
+        .catch((err) => reject(err));
+    });
   }
 
   /**
@@ -87,7 +95,11 @@ class APIRequest {
   post(body: object): Promise<any> {
     this._headers = this.generateHeaders();
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
-    return this._api.post(this._url, body, { headers: this._headers });
+    return new Promise((resolve, reject) => {
+      return this._api.post(this._url, body, { headers: this._headers })
+        .then((res) => resolve(res.data))
+        .catch((err) => reject(err));
+    });
   }
 
   /**
@@ -98,7 +110,11 @@ class APIRequest {
   patch(body: object): Promise<any> {
     this._headers = this.generateHeaders();
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
-    return this._api.patch(this._url, body, { headers: this._headers });
+    return new Promise((resolve, reject) => {
+      return this._api.patch(this._url, body, { headers: this._headers })
+        .then((res) => resolve(res.data))
+        .catch((err) => reject(err));
+    });
   }
 
   /**
@@ -108,7 +124,11 @@ class APIRequest {
   delete(): Promise<any> {
     this._headers = this.generateHeaders();
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
-    return this._api.delete(this._url, { headers: this._headers });
+    return new Promise((resolve, reject) => {
+      return this._api.delete(this._url, { headers: this._headers })
+        .then((res) => resolve(res.data))
+        .catch((err) => reject(err));
+    });
   }
 
   /**
@@ -118,7 +138,11 @@ class APIRequest {
   postMultiform(payload: object) {
     this._headers = this.generateHeaders('multipart/form-data');
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
-    return this._api.postMultiform(this._url, payload, { headers: this._headers });
+    return new Promise((resolve, reject) => {
+      return this._api.postMultiform(this._url, payload, { headers: this._headers })
+        .then((res) => resolve(res.data))
+        .catch((err) => reject(err));
+    });
   }
 
   /**
@@ -128,7 +152,11 @@ class APIRequest {
   putMultiform(payload: object) {
     this._headers = this.generateHeaders('multipart/form-data');
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
-    return this._api.putMultiform(this._url, payload, { headers: this._headers });
+    return new Promise((resolve, reject) => {
+      return this._api.putMultiform(this._url, payload, { headers: this._headers })
+        .then((res) => resolve(res.data))
+        .catch((err) => reject(err));
+    });
   }
 
   /**
@@ -138,7 +166,11 @@ class APIRequest {
   patchMultiform(payload: object) {
     this._headers = this.generateHeaders('multipart/form-data');
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
-    return this._api.patchMultiform(this._url, payload, { headers: this._headers });
+    return new Promise((resolve, reject) => {
+      return this._api.patchMultiform(this._url, payload, { headers: this._headers })
+        .then((res) => resolve(res.data))
+        .catch((err) => reject(err));
+    });
   }
 
   /**
@@ -148,7 +180,11 @@ class APIRequest {
   postUrlencoded(payload: object) {
     this._headers = this.generateHeaders('application/x-www-form-urlencoded');
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
-    return this._api.postUrlencoded(this._url, payload, { headers: this._headers });
+    return new Promise((resolve, reject) => {
+      return this._api.postUrlencoded(this._url, payload, { headers: this._headers })
+        .then((res) => resolve(res.data))
+        .catch((err) => reject(err));
+    });
   }
 
   /**
@@ -158,7 +194,11 @@ class APIRequest {
   putUrlencoded(payload: object) {
     this._headers = this.generateHeaders('application/x-www-form-urlencoded');
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
-    return this._api.putUrlencoded(this._url, payload, { headers: this._headers });
+    return new Promise((resolve, reject) => {
+      return this._api.putUrlencoded(this._url, payload, { headers: this._headers })
+        .then((res) => resolve(res.data))
+        .catch((err) => reject(err));
+    });
   }
 
   /**
@@ -168,7 +208,11 @@ class APIRequest {
   patchUrlencoded(payload: object) {
     this._headers = this.generateHeaders('application/x-www-form-urlencoded');
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
-    return this._api.patchUrlencoded(this._url, payload, { headers: this._headers });
+    return new Promise((resolve, reject) => {
+      return this._api.patchUrlencoded(this._url, payload, { headers: this._headers })
+        .then((res) => resolve(res.data))
+        .catch((err) => reject(err));
+    });
   }
 }
 

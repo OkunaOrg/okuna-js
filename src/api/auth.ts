@@ -22,10 +22,9 @@ class AuthAPI extends APIRequest {
     this.requiresToken = false;
 
     return new Promise((resolve, reject) => {
-      return this
-        .post({ username })
+      return this.post({ username })
         .then(() => resolve(true))
-        .catch((err) => {
+        .catch((err: any) => {
           if (err.response && err.response.status === 400) {
             return resolve(false);
           }
@@ -40,10 +39,9 @@ class AuthAPI extends APIRequest {
     this.requiresToken = false;
 
     return new Promise((resolve, reject) => {
-      return this
-        .post({ email })
+      return this.post({ email })
         .then(() => resolve(true))
-        .catch((err) => {
+        .catch((err: any) => {
           if (err.response && err.response.status === 400) {
             return resolve(false);
           }
@@ -72,48 +70,28 @@ class AuthAPI extends APIRequest {
     this._paths.push('register');
     this.requiresToken = false;
 
-    return new Promise((resolve, reject) => {
-      return this
-        .postUrlencoded(body)
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.postUrlencoded(body);
   }
 
   async updateUserEmail(email: string) {
     this._paths.push('user', 'settings');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .patchUrlencoded({ email })
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.patchUrlencoded({ email });
   }
 
   async updateUserPassword(currentPassword: string, newPassword: string) {
     this._paths.push('user', 'settings');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .patchUrlencoded({
-          current_password: currentPassword,
-          new_password: newPassword
-        })
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
+    return this.patchUrlencoded({
+      current_password: currentPassword,
+      new_password: newPassword
     });
   }
 
   async verifyEmailWithToken(token: string) {
     this._paths.push('email', 'verify');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post({ token })
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post({ token });
   }
 
   async getUserWithAuthToken(authToken: string) {
@@ -121,12 +99,7 @@ class AuthAPI extends APIRequest {
     (this._headers as any)['Authorization'] = `Token: ${authToken}`;
     this._paths.push('user');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   async getUserWithUsername(username: string, authenticatedRequest: boolean = true) {
@@ -136,12 +109,7 @@ class AuthAPI extends APIRequest {
 
     this._paths.push('users', encodeURIComponent(username));
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   async getUsersWithQuery(query: string, authenticatedRequest: boolean = true) {
@@ -150,12 +118,7 @@ class AuthAPI extends APIRequest {
     this._paths.push('users');
     this._params.query = query;
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   async searchLinkedUsers(opts: ISearchLinkedUsers) {
@@ -170,12 +133,7 @@ class AuthAPI extends APIRequest {
       this._params.with_community = opts.withCommunity;
     }
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   async getLinkedUsers(opts: IGetLinkedUsers, authenticatedRequest: boolean = true) {
@@ -194,12 +152,7 @@ class AuthAPI extends APIRequest {
       this._params.with_community = opts.withCommunity;
     }
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   async searchBlockedUsers(query: string, count: number | undefined = undefined) {
@@ -210,12 +163,7 @@ class AuthAPI extends APIRequest {
       this._params.count = count;
     }
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   async getBlockedUsers(opts: LimitationParams, authenticatedRequest: boolean = true) {
@@ -230,34 +178,19 @@ class AuthAPI extends APIRequest {
       this._params.max_id = opts.maxId;
     }
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   async blockUserWithName(username: string) {
     this._paths.push('users', encodeURIComponent(username), 'block');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post({})
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post({});
   }
 
   async unblockUserWithName(username: string) {
     this._paths.push('users', encodeURIComponent(username), 'unblock');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post({})
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post({});
   }
 
   async searchFollowers(opts: ISearchFollowers) {
@@ -269,12 +202,7 @@ class AuthAPI extends APIRequest {
       this._params.count = opts.count;
     }
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   async getFollowers(opts: LimitationParams, authenticatedRequest: boolean = true) {
@@ -289,12 +217,7 @@ class AuthAPI extends APIRequest {
       this._params.max_id = opts.maxId;
     }
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   async searchFollowings(opts: ISearchFollowings) {
@@ -306,12 +229,7 @@ class AuthAPI extends APIRequest {
       this._params.count = opts.count;
     }
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   async getFollowings(opts: LimitationParams, authenticatedRequest: boolean = true) {
@@ -326,107 +244,62 @@ class AuthAPI extends APIRequest {
       this._params.max_id = opts.maxId;
     }
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   async login(username: string, password: string) {
     this._paths.push('login');
     this.requiresToken = false;
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post({ username, password })
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post({ username, password });
   }
 
   async requestPasswordReset(opts: IRequestPasswordReset) {
     this.requiresToken = false;
     this._paths.push('password', 'reset');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post(opts)
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post(opts);
   }
 
   async verifyPasswordReset(opts: IVerifyPasswordReset) {
     this.requiresToken = false;
     this._paths.push('password', 'verify');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post({
-          new_password: opts.password,
-          token: opts.token
-        })
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
+    return this.post({
+      new_password: opts.password,
+      token: opts.token
     });
   }
 
   async getAuthenticatedUserNotificationSettings() {
     this._paths.push('user', 'notifications-settings');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   async updateAuthenticatedUserNotificationSettings(opts: IUpdateNotificationSettings) {
     this._paths.push('user', 'notifications-settings');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post(opts)
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post(opts);
   }
 
   async acceptGuidelines() {
     this._paths.push('user', 'accept-guidelines');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post({})
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post({});
   }
 
   async getAllLanguages() {
     this._paths.push('user', 'languages');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   async setNewLanguage(languageId: number) {
     this._paths.push('user', 'languages');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post({
-          language_id: languageId.toString()
-        })
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
+    return this.post({
+      language_id: languageId.toString()
     });
   }
 
@@ -441,12 +314,7 @@ class AuthAPI extends APIRequest {
       body.description = opts.description;
     }
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post(body)
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post(body);
   }
 }
 

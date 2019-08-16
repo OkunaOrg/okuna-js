@@ -10,34 +10,19 @@ class FollowsAPI extends APIRequest {
   follow(opts: IUserFollows) {
     this._paths.push('follow');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post(opts)
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post(opts);
   }
 
   update(opts: IUserFollows) {
     this._paths.push('update');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post(opts)
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post(opts);
   }
 
   unfollow(username: string) {
     this._paths.push('unfollow');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .post({ username })
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.post({ username });
   }
 }
 

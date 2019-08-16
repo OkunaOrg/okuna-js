@@ -28,12 +28,7 @@ class PostsAPI extends APIRequest {
       this._params['username'] = opts.username;
     }
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   async createPost(opts: ICreatePost) {
@@ -55,23 +50,13 @@ class PostsAPI extends APIRequest {
       payload['circle_id'] = opts.circleIds.join(',');
     }
 
-    return new Promise((resolve, reject) => {
-      return this
-        .putUrlencoded(payload)
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.putUrlencoded(payload);
   }
 
   async getTrendingPosts() {
     this._paths.push('trending');
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   async editPost(opts: IEditPost) {
@@ -85,34 +70,19 @@ class PostsAPI extends APIRequest {
       payload['text'] = opts.text;
     }
 
-    return new Promise((resolve, reject) => {
-      return this
-        .patchUrlencoded(payload)
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.patchUrlencoded(payload);
   }
 
   async getPostWithUuid(uuid: string) {
     this._paths.push(encodeURIComponent(uuid));
 
-    return new Promise((resolve, reject) => {
-      return this
-        .get()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.get();
   }
 
   async deletePostWithUuid(uuid: string) {
     this._paths.push(encodeURIComponent(uuid));
 
-    return new Promise((resolve, reject) => {
-      return this
-        .delete()
-        .then((res) => resolve(res.data))
-        .catch((err) => reject(err));
-    });
+    return this.delete();
   }
 }
 
