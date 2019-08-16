@@ -1,0 +1,6 @@
+{
+  "mode": "file",
+  "out": "./docs",
+  "name": "Okuna.js",
+  "readme": "./DOCINDEX.md"
+}

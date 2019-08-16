@@ -64,51 +64,60 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<a href="#okunajs" id="okunajs" style="color: inherit; text-decoration: none;">
-					<h1>Okuna.js</h1>
+				<a href="#okunajs-documentation" id="okunajs-documentation" style="color: inherit; text-decoration: none;">
+					<h1>Okuna.js Documentation</h1>
 				</a>
-				<p><a href="https://travis-ci.org/jozsefsallai/okuna.js"><img src="https://travis-ci.org/jozsefsallai/okuna.js.svg" alt="Build Status"></a> <a href="https://coveralls.io/github/jozsefsallai/okuna.js?branch=master"><img src="https://coveralls.io/repos/github/jozsefsallai/okuna.js/badge.svg?branch=master" alt="Coverage Status"></a> <a href="https://www.npmjs.com/package/okuna"><img src="https://img.shields.io/npm/v/okuna.svg?style=flat" alt="npm version"></a></p>
-				<p>A library for Node.js and the browser to connect to the Okuna API. Currently very WIP.</p>
-				<a href="#docs" id="docs" style="color: inherit; text-decoration: none;">
-					<h2>Docs</h2>
+				<p>Welcome to the Okuna.js documentation page! Okuna.js is a JavaScript library that allows you to interact with the <a href="https://okuna.io">Okuna API</a>. It can be used both in the browser and in Node.js.</p>
+				<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
+					<h2>Getting Started</h2>
 				</a>
-				<a href="#basic-usage" id="basic-usage" style="color: inherit; text-decoration: none;">
-					<h3>Basic Usage</h3>
+				<a href="#nodejs" id="nodejs" style="color: inherit; text-decoration: none;">
+					<h3>Node.js</h3>
 				</a>
-				<p>Node.js:</p>
+				<p>The first thing you need to do is to install the package. To do this, you can either run</p>
+				<pre><code class="language-sh">npm i okuna</code></pre>
+				<p>or, if you prefer Yarn:</p>
+				<pre><code class="language-sh">yarn add okuna</code></pre>
+				<p>Depending on your setup, you want to use one of these:</p>
+				<p><strong>CommonJS:</strong></p>
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> { Client } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'okuna'</span>);
-<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Client({
-  <span class="hljs-attr">authToken</span>: <span class="hljs-string">'your-token'</span>
-});
+<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Client();
 
 <span class="hljs-keyword">const</span> health = <span class="hljs-keyword">await</span> client.health().getHealth();</code></pre>
-				<p>Browser (linked directly in the HTML):</p>
+				<p><strong>ES6 imports:</strong></p>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Client } <span class="hljs-keyword">from</span> <span class="hljs-string">'okuna'</span>;
+<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Client();
+
+<span class="hljs-keyword">const</span> health = <span class="hljs-keyword">await</span> client.health().getHealth();</code></pre>
+				<a href="#browser" id="browser" style="color: inherit; text-decoration: none;">
+					<h3>Browser</h3>
+				</a>
+				<a href="#if-you-use-a-bundler-eg-webpack" id="if-you-use-a-bundler-eg-webpack" style="color: inherit; text-decoration: none;">
+					<h4>If you use a bundler (e.g.: Webpack)</h4>
+				</a>
+				<p>The process is nearly identical to the one of Node.js. Install the library using the steps described in the Node.js setup and use the ES6 imports method for working with the library.</p>
+				<a href="#if-you-don39t-use-a-bundler" id="if-you-don39t-use-a-bundler" style="color: inherit; text-decoration: none;">
+					<h4>If you don&#39;t use a bundler</h4>
+				</a>
+				<p>Import the bundled and minified script from the JSDelivr CDN:</p>
+				<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/okuna@0.1/dist/okuna.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+				<p>This will register the <code>Okuna</code> variable in your website&#39;s DOM. You can use the library like this:</p>
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> { Client } = Okuna;
-<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Client({
-  <span class="hljs-attr">authToken</span>: <span class="hljs-string">'your-token'</span>
-});
+<span class="hljs-comment">// or const client = new Okuna.Client();</span>
 
-<span class="hljs-keyword">const</span> health = <span class="hljs-keyword">await</span> client.health().getHealth();</code></pre>
-				<p><em>Note: the usage of a bundler (e.g.: Webpack) is highly recommended as it makes the development process smoother.</em></p>
-				<a href="#this-section-is-a-wip-and-will-be-moved-to-a-separate-page" id="this-section-is-a-wip-and-will-be-moved-to-a-separate-page" style="color: inherit; text-decoration: none;">
-					<h3>This section is a WIP and will be moved to a separate page.</h3>
+<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> Client();
+
+<span class="hljs-keyword">const</span> health = <span class="hljs-keyword">await</span> client.health().getHealth();
+<span class="hljs-comment">// Note: older browsers don't support async/await.</span></code></pre>
+				<p><strong>Note:</strong> The <code>okuna.min.js</code> file has additional dependencies bundled in. These dependencies include <a href="https://npmjs.com/axios">Axios</a>, <a href="https://npmjs.com/isomorphic-fetch">isomorphic-fetch</a>, and <a href="https://npmjs.com/isomorphic-form-data">isomorphic-form-data</a> to ensure that the library works. You may or may not have one or more of these libraries loaded in your web page already. Unless you know what you doing, you should <strong>use a bundler</strong> to reduce the size of your assets, have a better development experience, and remove potential conflicts.</p>
+				<a href="#working-with-the-library" id="working-with-the-library" style="color: inherit; text-decoration: none;">
+					<h2>Working With the Library</h2>
 				</a>
-				<a href="#contribution" id="contribution" style="color: inherit; text-decoration: none;">
-					<h2>Contribution</h2>
+				<p>This web page contains a documentation on how exactly the API of the library works and how you should use it in your projects. You should start by reading more about <a href="/classes/client.html">the Okuna.js Client class</a>.</p>
+				<a href="#questions" id="questions" style="color: inherit; text-decoration: none;">
+					<h2>Questions?</h2>
 				</a>
-				<p>Contribution is always welcome and appreciated!</p>
-				<p>Clone the repository:</p>
-				<pre><code class="language-sh">git <span class="hljs-built_in">clone</span> git@github.com:jozsefsallai/okuna.js.git
-<span class="hljs-built_in">cd</span> okuna.js</code></pre>
-				<p>Install the dependencies:</p>
-				<pre><code class="language-sh">npm i -g yarn
-yarn</code></pre>
-				<p>To run a development build:</p>
-				<pre><code><span class="hljs-attribute">yarn watch</span></code></pre><p>To make a single build of the files:</p>
-				<pre><code><span class="hljs-attribute">yarn build</span></code></pre><p>To build for both Node and the browser, run:</p>
-				<pre><code>yarn <span class="hljs-built_in">prepare</span></code></pre><p>Make sure that your changes pass linting:</p>
-				<pre><code><span class="hljs-attribute">yarn lint</span></code></pre><p>...and that your tests are okay:</p>
-				<pre><code>yarn <span class="hljs-built_in">test</span></code></pre>
+				<p>Feel free to <a href="https://github.com/jozsefsallai/okuna.js/issues">open an issue in the library&#39;s Github repository</a>.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -124,7 +133,7 @@ yarn</code></pre>
 					<li class=" tsd-kind-class tsd-is-not-exported">
 						<a href="classes/apirequest.html" class="tsd-kind-icon">APIRequest</a>
 					</li>
-					<li class=" tsd-kind-class tsd-is-not-exported">
+					<li class=" tsd-kind-class">
 						<a href="classes/authapi.html" class="tsd-kind-icon">AuthAPI</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -133,13 +142,16 @@ yarn</code></pre>
 					<li class=" tsd-kind-class tsd-is-not-exported">
 						<a href="classes/categoriesapi.html" class="tsd-kind-icon">CategoriesAPI</a>
 					</li>
-					<li class=" tsd-kind-class tsd-is-not-exported">
+					<li class=" tsd-kind-class">
 						<a href="classes/circlesapi.html" class="tsd-kind-icon">CirclesAPI</a>
 					</li>
 					<li class=" tsd-kind-class tsd-is-not-exported">
 						<a href="classes/client.html" class="tsd-kind-icon">Client</a>
 					</li>
 					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="classes/communitiesapi.html" class="tsd-kind-icon">CommunitiesAPI</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/connectionsapi.html" class="tsd-kind-icon">ConnectionsAPI</a>
 					</li>
 					<li class=" tsd-kind-class tsd-is-not-exported">
@@ -151,13 +163,13 @@ yarn</code></pre>
 					<li class=" tsd-kind-class">
 						<a href="classes/fetchstrategy.html" class="tsd-kind-icon">Fetch<wbr>Strategy</a>
 					</li>
-					<li class=" tsd-kind-class tsd-is-not-exported">
+					<li class=" tsd-kind-class">
 						<a href="classes/followsapi.html" class="tsd-kind-icon">FollowsAPI</a>
 					</li>
 					<li class=" tsd-kind-class tsd-is-not-exported">
 						<a href="classes/healthapi.html" class="tsd-kind-icon">HealthAPI</a>
 					</li>
-					<li class=" tsd-kind-class tsd-is-not-exported">
+					<li class=" tsd-kind-class">
 						<a href="classes/listsapi.html" class="tsd-kind-icon">ListsAPI</a>
 					</li>
 					<li class=" tsd-kind-class tsd-is-not-exported">
@@ -176,7 +188,13 @@ yarn</code></pre>
 						<a href="classes/userinvitesapi.html" class="tsd-kind-icon">User<wbr>InvitesAPI</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/extralimitationparams.html" class="tsd-kind-icon">Extra<wbr>Limitation<wbr>Params</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/icreatecircle.html" class="tsd-kind-icon">ICreate<wbr>Circle</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/icreatecommunity.html" class="tsd-kind-icon">ICreate<wbr>Community</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/icreatelist.html" class="tsd-kind-icon">ICreate<wbr>List</a>
@@ -188,16 +206,43 @@ yarn</code></pre>
 						<a href="interfaces/ieditpost.html" class="tsd-kind-icon">IEdit<wbr>Post</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/igetadministratedcommunities.html" class="tsd-kind-icon">IGet<wbr>Administrated<wbr>Communities</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/igetfavoritecommunities.html" class="tsd-kind-icon">IGet<wbr>Favorite<wbr>Communities</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/igetglobalmoderatedobjects.html" class="tsd-kind-icon">IGet<wbr>Global<wbr>Moderated<wbr>Objects</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/igetjoinedcommunities.html" class="tsd-kind-icon">IGet<wbr>Joined<wbr>Communities</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/igetlinkedusers.html" class="tsd-kind-icon">IGet<wbr>Linked<wbr>Users</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/igetmembersforcommunity.html" class="tsd-kind-icon">IGet<wbr>Members<wbr>For<wbr>Community</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/igetpostparticipants.html" class="tsd-kind-icon">IGet<wbr>Post<wbr>Participants</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/igetreactionsforpost.html" class="tsd-kind-icon">IGet<wbr>Reactions<wbr>For<wbr>Post</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/igettimelineposts.html" class="tsd-kind-icon">IGet<wbr>Timeline<wbr>Posts</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/imoderatedobject.html" class="tsd-kind-icon">IModerated<wbr>Object</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ireportcommunity.html" class="tsd-kind-icon">IReport<wbr>Community</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ireportpost.html" class="tsd-kind-icon">IReport<wbr>Post</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ireportpostcomment.html" class="tsd-kind-icon">IReport<wbr>Post<wbr>Comment</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/ireportuser.html" class="tsd-kind-icon">IReport<wbr>User</a>
@@ -215,10 +260,22 @@ yarn</code></pre>
 						<a href="interfaces/isearchfollowings.html" class="tsd-kind-icon">ISearch<wbr>Followings</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/isearchjoinedcommunities.html" class="tsd-kind-icon">ISearch<wbr>Joined<wbr>Communities</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/isearchlinkedusers.html" class="tsd-kind-icon">ISearch<wbr>Linked<wbr>Users</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/isearchmembers.html" class="tsd-kind-icon">ISearch<wbr>Members</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/isearchpostparticipants.html" class="tsd-kind-icon">ISearch<wbr>Post<wbr>Participants</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/iupdatecircle.html" class="tsd-kind-icon">IUpdate<wbr>Circle</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iupdatecommunity.html" class="tsd-kind-icon">IUpdate<wbr>Community</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/iupdatelist.html" class="tsd-kind-icon">IUpdate<wbr>List</a>
@@ -240,6 +297,9 @@ yarn</code></pre>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/limitationparams.html" class="tsd-kind-icon">Limitation<wbr>Params</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/limitationparamswithauthenticationcheck.html" class="tsd-kind-icon">Limitation<wbr>Params<wbr>With<wbr>Authentication<wbr>Check</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/okunaopts.html" class="tsd-kind-icon">Okuna<wbr>Opts</a>

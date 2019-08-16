@@ -62,7 +62,7 @@ class APIRequest {
    * GET request
    * @returns {Promise<any>}
    */
-  get(): Promise<any> {
+  protected get(): Promise<any> {
     this._headers = this.generateHeaders();
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
     return new Promise((resolve, reject) => {
@@ -77,7 +77,7 @@ class APIRequest {
    * PUT request
    * @param {object} body - Request body
    */
-  put(body: object): Promise<any> {
+  protected put(body: object): Promise<any> {
     this._headers = this.generateHeaders();
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
     return new Promise((resolve, reject) => {
@@ -92,7 +92,7 @@ class APIRequest {
    * POST request
    * @param {object} body - Request body
    */
-  post(body: object): Promise<any> {
+  protected post(body: object): Promise<any> {
     this._headers = this.generateHeaders();
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
     return new Promise((resolve, reject) => {
@@ -107,7 +107,7 @@ class APIRequest {
    * PATCH request
    * @param {object} body - Request body
    */
-  patch(body: object): Promise<any> {
+  protected patch(body: object): Promise<any> {
     this._headers = this.generateHeaders();
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
     return new Promise((resolve, reject) => {
@@ -121,7 +121,7 @@ class APIRequest {
    * delete()
    * DELETE request
    */
-  delete(): Promise<any> {
+  protected delete(): Promise<any> {
     this._headers = this.generateHeaders();
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
     return new Promise((resolve, reject) => {
@@ -135,7 +135,7 @@ class APIRequest {
    * postMultiform()
    * POST request (Multiform)
    */
-  postMultiform(payload: object) {
+  protected postMultiform(payload: object) {
     this._headers = this.generateHeaders('multipart/form-data');
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
     return new Promise((resolve, reject) => {
@@ -149,7 +149,7 @@ class APIRequest {
    * putMultiform()
    * POST request (Multiform)
    */
-  putMultiform(payload: object) {
+  protected putMultiform(payload: object) {
     this._headers = this.generateHeaders('multipart/form-data');
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
     return new Promise((resolve, reject) => {
@@ -163,7 +163,7 @@ class APIRequest {
    * patchMultiform()
    * POST request (Multiform)
    */
-  patchMultiform(payload: object) {
+  protected patchMultiform(payload: object) {
     this._headers = this.generateHeaders('multipart/form-data');
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
     return new Promise((resolve, reject) => {
@@ -177,7 +177,7 @@ class APIRequest {
    * postUrlencoded()
    * POST request (urlencoded)
    */
-  postUrlencoded(payload: object) {
+  protected postUrlencoded(payload: object) {
     this._headers = this.generateHeaders('application/x-www-form-urlencoded');
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
     return new Promise((resolve, reject) => {
@@ -191,7 +191,7 @@ class APIRequest {
    * putUrlencoded()
    * POST request (urlencoded)
    */
-  putUrlencoded(payload: object) {
+  protected putUrlencoded(payload: object) {
     this._headers = this.generateHeaders('application/x-www-form-urlencoded');
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
     return new Promise((resolve, reject) => {
@@ -205,7 +205,7 @@ class APIRequest {
    * postUrlencoded()
    * POST request (urlencoded)
    */
-  patchUrlencoded(payload: object) {
+  protected patchUrlencoded(payload: object) {
     this._headers = this.generateHeaders('application/x-www-form-urlencoded');
     this._url = buildUrl(this._okuna.apiUrl, this._paths, this._params);
     return new Promise((resolve, reject) => {

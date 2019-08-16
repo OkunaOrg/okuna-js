@@ -32,7 +32,7 @@ class Client {
   public readonly magicHeaderValue: string | null | undefined;
   public readonly requestStrategy: string | RequestStrategy;
 
-  constructor(opts: OkunaOpts) {
+  constructor(opts: OkunaOpts = {}) {
     this.apiUrl = opts.apiUrl || 'https://api.openbook.social';
     this.authToken = opts.authToken || null;
 
@@ -43,6 +43,12 @@ class Client {
     this.requestStrategy = opts.requestStrategy || 'axios';
   }
 
+  /**
+   * _buildMagicHeader() - Builds a magic header to add to the request headers
+   * @param {string | null | undefined} name - the name of the magic header
+   * @param {string | null | undefined} value - the value of the magic header
+   * @returns {object} an object containing the provided data
+   */
   _buildMagicHeader(name: string | null | undefined, value: string | null | undefined) {
     if (name === null || value === null) {
       return {
@@ -57,6 +63,10 @@ class Client {
     };
   }
 
+  /**
+   * updateAuthToken() - Updates the authorization token of the current Client instance
+   * @param {string} token - the new authorization token
+   */
   updateAuthToken(token: string) {
     this.authToken = token;
   }

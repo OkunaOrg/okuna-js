@@ -50,7 +50,7 @@
   "scripts": {
     "build": "rm -rf lib && tsc",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "docs": "typedoc --name \"Okuna.js\" --out ./docs --mode file",
+    "docs": "typedoc",
     "lint": "tslint --project .",
     "prepack": "npm run build && webpack",
     "prepare": "npm run build && webpack",

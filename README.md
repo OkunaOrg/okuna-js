@@ -2,37 +2,11 @@
 
 [![Build Status](https://travis-ci.org/jozsefsallai/okuna.js.svg)](https://travis-ci.org/jozsefsallai/okuna.js) [![Coverage Status](https://coveralls.io/repos/github/jozsefsallai/okuna.js/badge.svg?branch=master)](https://coveralls.io/github/jozsefsallai/okuna.js?branch=master) [![npm version](https://img.shields.io/npm/v/okuna.svg?style=flat)](https://www.npmjs.com/package/okuna)
 
-A library for Node.js and the browser to connect to the Okuna API. Currently very WIP.
+A library for Node.js and the browser to connect to the Okuna API. WIP.
 
 ## Docs
 
-### Basic Usage
-
-Node.js:
-
-```js
-const { Client } = require('okuna');
-const client = new Client({
-  authToken: 'your-token'
-});
-
-const health = await client.health().getHealth();
-```
-
-Browser (linked directly in the HTML):
-
-```js
-const { Client } = Okuna;
-const client = new Client({
-  authToken: 'your-token'
-});
-
-const health = await client.health().getHealth();
-```
-
-*Note: the usage of a bundler (e.g.: Webpack) is highly recommended as it makes the development process smoother.*
-
-### This section is a WIP and will be moved to a separate page.
+You can read the library documentation [here](https://jozsefsallai.github.io/okuna.js/).
 
 ## Contribution
 
