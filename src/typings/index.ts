@@ -85,3 +85,13 @@ export interface ExtraLimitationParams {
   minId?: number;
   sort?: string;
 }
+
+/**
+ * Limitation parameters with authentication check
+ * @typedef {object} LimitationParamsWithAuthenticationCheck
+ * @extends {LimitationParams}
+ * @property {boolean} authenticatedRequest
+ */
+export interface LimitationParamsWithAuthenticationCheck extends LimitationParams {
+  authenticatedRequest?: boolean;
+}
