@@ -68,7 +68,7 @@ const health = await client.health().getHealth();
 
 ## Working With the Library
 
-This web page contains a documentation on how exactly the API of the library works and how you should use it in your projects. You should start by reading more about [the Okuna.js Client class](/classes/client.html).
+This web page contains a documentation on how exactly the API of the library works and how you should use it in your projects. You should start by reading more about [the Okuna.js Client class](classes/client.html).
 
 ## Questions?
 
