@@ -1,4 +1,6 @@
 {
+  "excludeExternals": true,
+  "includeDeclarations": true,
   "mode": "file",
   "out": "./docs",
   "name": "Okuna.js",

@@ -38,8 +38,6 @@
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
 							<input type="checkbox" id="tsd-filter-only-exported" />
 							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
@@ -114,6 +112,46 @@
 					<h2>Working With the Library</h2>
 				</a>
 				<p>This web page contains a documentation on how exactly the API of the library works and how you should use it in your projects. You should start by reading more about <a href="classes/client.html">the Okuna.js Client class</a>.</p>
+				<a href="#working-with-filesuploads" id="working-with-filesuploads" style="color: inherit; text-decoration: none;">
+					<h2>Working With Files/Uploads</h2>
+				</a>
+				<p>It is very important to know how to work with file uploads when using the library. File uploads are done using the <code>multipart/form-data</code> header, so we use <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData">FormData</a> to create a payload to be sent to the API server.</p>
+				<p>When passing a file as a parameter, it should <strong>always</strong> have these two parameters:</p>
+				<ul>
+					<li><code>file</code> - A blob or file input object</li>
+					<li><code>name</code> - The name of the file</li>
+				</ul>
+				<p><strong>Example (Node.js):</strong></p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
+<span class="hljs-keyword">const</span> { Client } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'okuna'</span>);
+
+<span class="hljs-comment">// ... client setup</span>
+
+<span class="hljs-keyword">const</span> blob = fs.readFileSync(<span class="hljs-string">'/path/to/file'</span>);
+
+client.posts().createPost({
+  <span class="hljs-attr">text</span>: <span class="hljs-string">'Here is an image!'</span>,
+  <span class="hljs-attr">image</span>: {
+    <span class="hljs-attr">file</span>: blob,
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'filename_with.extension'</span> <span class="hljs-comment">// if you know the path, you should know the name too (you can use path.basename() here)</span>
+  }
+})
+  .then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(res))
+  .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-built_in">console</span>.error(err));</code></pre>
+				<p><strong>Example (file inputs):</strong></p>
+				<pre><code class="language-js"><span class="hljs-comment">// ... client setup</span>
+
+<span class="hljs-keyword">const</span> fileInput = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">"input[name=image]"</span>);
+
+client.posts().createPost({
+  <span class="hljs-attr">text</span>: <span class="hljs-string">'Here is an image!'</span>,
+  <span class="hljs-attr">image</span>: {
+    <span class="hljs-attr">file</span>: fileInput.files[<span class="hljs-number">0</span>], <span class="hljs-comment">// you'd probably store fileInput.files[0] in a separate variable</span>
+    name: fileInput.files[<span class="hljs-number">0</span>].name
+  }
+})
+  .then(<span class="hljs-comment">/* ... */</span>)
+  .catch(<span class="hljs-comment">/* ... */</span>);</code></pre>
 				<a href="#questions" id="questions" style="color: inherit; text-decoration: none;">
 					<h2>Questions?</h2>
 				</a>
@@ -163,6 +201,9 @@
 					<li class=" tsd-kind-class">
 						<a href="classes/fetchstrategy.html" class="tsd-kind-icon">Fetch<wbr>Strategy</a>
 					</li>
+					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="classes/fileobject.html" class="tsd-kind-icon">File<wbr>Object</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/followsapi.html" class="tsd-kind-icon">FollowsAPI</a>
 					</li>
@@ -204,6 +245,9 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/ieditpost.html" class="tsd-kind-icon">IEdit<wbr>Post</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-is-not-exported">
+						<a href="interfaces/ifileobjectopts.html" class="tsd-kind-icon">IFile<wbr>Object<wbr>Opts</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/igetadministratedcommunities.html" class="tsd-kind-icon">IGet<wbr>Administrated<wbr>Communities</a>
@@ -285,6 +329,9 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/iupdatenotificationsettings.html" class="tsd-kind-icon">IUpdate<wbr>Notification<wbr>Settings</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iupdateuser.html" class="tsd-kind-icon">IUpdate<wbr>User</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/iuserconnection.html" class="tsd-kind-icon">IUser<wbr>Connection</a>

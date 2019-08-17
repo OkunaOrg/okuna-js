@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IUserConnection | Okuna.js</title>
+	<title>FileObject | Okuna.js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="iuserconnection.html">IUserConnection</a>
+					<a href="fileobject.html">FileObject</a>
 				</li>
 			</ul>
-			<h1>Interface IUserConnection</h1>
+			<h1>Class FileObject</h1>
 		</div>
 	</div>
 </header>
@@ -66,18 +66,10 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Parameters for certain methods in connections()</p>
-					</div>
 					<dl class="tsd-comment-tags">
-						<dt>typedef</dt>
-						<dd><p>{object} IUserConnection</p>
-						</dd>
-						<dt>property</dt>
-						<dd><p>{string} username - the username to connect with</p>
-						</dd>
-						<dt>property</dt>
-						<dd><p>{number[]} circleIds - the circle IDs to which the user should be added</p>
+						<dt>api</dt>
+						<dd><p>private
+							FileObject - describes a file object.</p>
 						</dd>
 					</dl>
 				</div>
@@ -86,7 +78,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IUserConnection</span>
+						<span class="target">FileObject</span>
 					</li>
 				</ul>
 			</section>
@@ -94,35 +86,84 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-not-exported">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-not-exported"><a href="fileobject.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iuserconnection.html#circleids" class="tsd-kind-icon">circle<wbr>Ids</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iuserconnection.html#username" class="tsd-kind-icon">username</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-not-exported"><a href="fileobject.html#file" class="tsd-kind-icon">file</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-not-exported"><a href="fileobject.html#isvalidfileobject" class="tsd-kind-icon">is<wbr>Valid<wbr>File<wbr>Object</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-not-exported"><a href="fileobject.html#name" class="tsd-kind-icon">name</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-not-exported">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>File<wbr>Object<span class="tsd-signature-symbol">(</span>opts<span class="tsd-signature-symbol">: </span><a href="../interfaces/ifileobjectopts.html" class="tsd-signature-type">IFileObjectOpts</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="fileobject.html" class="tsd-signature-type">FileObject</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/utils/FileObject.ts#L13">utils/FileObject.ts:13</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>constructor</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>opts: <a href="../interfaces/ifileobjectopts.html" class="tsd-signature-type">IFileObjectOpts</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="fileobject.html" class="tsd-signature-type">FileObject</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="circleids" class="tsd-anchor"></a>
-					<h3>circle<wbr>Ids</h3>
-					<div class="tsd-signature tsd-kind-icon">circle<wbr>Ids<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-not-exported">
+					<a name="file" class="tsd-anchor"></a>
+					<h3>file</h3>
+					<div class="tsd-signature tsd-kind-icon">file<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Blob</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">File</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/typings/api/connections.d.ts#L11">typings/api/connections.d.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/utils/FileObject.ts#L11">utils/FileObject.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="username" class="tsd-anchor"></a>
-					<h3>username</h3>
-					<div class="tsd-signature tsd-kind-icon">username<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-not-exported">
+					<a name="isvalidfileobject" class="tsd-anchor"></a>
+					<h3>is<wbr>Valid<wbr>File<wbr>Object</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Valid<wbr>File<wbr>Object<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/typings/api/connections.d.ts#L10">typings/api/connections.d.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/utils/FileObject.ts#L13">utils/FileObject.ts:13</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-not-exported">
+					<a name="name" class="tsd-anchor"></a>
+					<h3>name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/utils/FileObject.ts#L12">utils/FileObject.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -140,14 +181,20 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="iuserconnection.html" class="tsd-kind-icon">IUser<wbr>Connection</a>
+					<li class="current tsd-kind-class tsd-is-not-exported">
+						<a href="fileobject.html" class="tsd-kind-icon">File<wbr>Object</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="iuserconnection.html#circleids" class="tsd-kind-icon">circle<wbr>Ids</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-not-exported">
+								<a href="fileobject.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="iuserconnection.html#username" class="tsd-kind-icon">username</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-not-exported">
+								<a href="fileobject.html#file" class="tsd-kind-icon">file</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-not-exported">
+								<a href="fileobject.html#isvalidfileobject" class="tsd-kind-icon">is<wbr>Valid<wbr>File<wbr>Object</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-not-exported">
+								<a href="fileobject.html#name" class="tsd-kind-icon">name</a>
 							</li>
 						</ul>
 					</li>

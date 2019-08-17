@@ -38,8 +38,6 @@
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
 							<input type="checkbox" id="tsd-filter-only-exported" />
 							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
@@ -105,6 +103,7 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported"><a href="postsapi.html#_constructformdata" class="tsd-kind-icon">_construct<wbr>Formdata</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-not-exported"><a href="postsapi.html#closepost" class="tsd-kind-icon">close<wbr>Post</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-not-exported"><a href="postsapi.html#commentonpost" class="tsd-kind-icon">comment<wbr>OnPost</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-not-exported"><a href="postsapi.html#createpost" class="tsd-kind-icon">create<wbr>Post</a></li>
@@ -134,14 +133,11 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-not-exported"><a href="postsapi.html#mutepostcomment" class="tsd-kind-icon">mute<wbr>Post<wbr>Comment</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-not-exported"><a href="postsapi.html#openpost" class="tsd-kind-icon">open<wbr>Post</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported"><a href="postsapi.html#patch" class="tsd-kind-icon">patch</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported"><a href="postsapi.html#patchmultiform" class="tsd-kind-icon">patch<wbr>Multiform</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported"><a href="postsapi.html#patchurlencoded" class="tsd-kind-icon">patch<wbr>Urlencoded</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported"><a href="postsapi.html#patchformdata" class="tsd-kind-icon">patch<wbr>Formdata</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported"><a href="postsapi.html#post" class="tsd-kind-icon">post</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported"><a href="postsapi.html#postmultiform" class="tsd-kind-icon">post<wbr>Multiform</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported"><a href="postsapi.html#posturlencoded" class="tsd-kind-icon">post<wbr>Urlencoded</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported"><a href="postsapi.html#postformdata" class="tsd-kind-icon">post<wbr>Formdata</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported"><a href="postsapi.html#put" class="tsd-kind-icon">put</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported"><a href="postsapi.html#putmultiform" class="tsd-kind-icon">put<wbr>Multiform</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported"><a href="postsapi.html#puturlencoded" class="tsd-kind-icon">put<wbr>Urlencoded</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported"><a href="postsapi.html#putformdata" class="tsd-kind-icon">put<wbr>Formdata</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-not-exported"><a href="postsapi.html#reacttopost" class="tsd-kind-icon">react<wbr>ToPost</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-not-exported"><a href="postsapi.html#reacttopostcomment" class="tsd-kind-icon">react<wbr>ToPost<wbr>Comment</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-not-exported"><a href="postsapi.html#replypostcomment" class="tsd-kind-icon">reply<wbr>Post<wbr>Comment</a></li>
@@ -170,7 +166,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L14">api/posts.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L15">api/posts.ts:15</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -193,7 +189,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#_api">_api</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/utils/APIRequest.ts#L22">utils/APIRequest.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/utils/APIRequest.ts#L25">utils/APIRequest.ts:25</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -204,7 +200,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#_endpoint">_endpoint</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/utils/APIRequest.ts#L17">utils/APIRequest.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/utils/APIRequest.ts#L20">utils/APIRequest.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -215,7 +211,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#_headers">_headers</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/utils/APIRequest.ts#L21">utils/APIRequest.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/utils/APIRequest.ts#L24">utils/APIRequest.ts:24</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -226,7 +222,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#_okuna">_okuna</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/utils/APIRequest.ts#L16">utils/APIRequest.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/utils/APIRequest.ts#L19">utils/APIRequest.ts:19</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -246,7 +242,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#_params">_params</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/utils/APIRequest.ts#L20">utils/APIRequest.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/utils/APIRequest.ts#L23">utils/APIRequest.ts:23</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -257,7 +253,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#_paths">_paths</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/utils/APIRequest.ts#L19">utils/APIRequest.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/utils/APIRequest.ts#L22">utils/APIRequest.ts:22</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -268,7 +264,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#_url">_url</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/utils/APIRequest.ts#L18">utils/APIRequest.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/utils/APIRequest.ts#L21">utils/APIRequest.ts:21</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -279,13 +275,46 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#requirestoken">requiresToken</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/utils/APIRequest.ts#L23">utils/APIRequest.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/utils/APIRequest.ts#L26">utils/APIRequest.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported">
+					<a name="_constructformdata" class="tsd-anchor"></a>
+					<h3>_construct<wbr>Formdata</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">_construct<wbr>Formdata<span class="tsd-signature-symbol">(</span>opts<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FormData</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#_constructformdata">_constructFormdata</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/utils/APIRequest.ts#L72">utils/APIRequest.ts:72</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>constructFormdata()
+									Constructs a FormData instance from an object.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the object to generate the FormData from</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FormData</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-not-exported">
 					<a name="closepost" class="tsd-anchor"></a>
 					<h3>close<wbr>Post</h3>
@@ -296,7 +325,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L297">api/posts.ts:297</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L298">api/posts.ts:298</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -319,7 +348,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L149">api/posts.ts:149</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L150">api/posts.ts:150</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -339,13 +368,13 @@
 					<a name="createpost" class="tsd-anchor"></a>
 					<h3>create<wbr>Post</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Post<span class="tsd-signature-symbol">(</span>opts<span class="tsd-signature-symbol">: </span><a href="../interfaces/icreatepost.html" class="tsd-signature-type">ICreatePost</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Post<span class="tsd-signature-symbol">(</span>opts<span class="tsd-signature-symbol">: </span><a href="../interfaces/icreatepost.html" class="tsd-signature-type">ICreatePost</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L43">api/posts.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L44">api/posts.ts:44</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -354,7 +383,7 @@
 									<h5>opts: <a href="../interfaces/icreatepost.html" class="tsd-signature-type">ICreatePost</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -369,7 +398,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#delete">delete</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/utils/APIRequest.ts#L124">utils/APIRequest.ts:124</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/utils/APIRequest.ts#L158">utils/APIRequest.ts:158</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -392,7 +421,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L164">api/posts.ts:164</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L165">api/posts.ts:165</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -418,7 +447,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L236">api/posts.ts:236</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L237">api/posts.ts:237</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -447,7 +476,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L197">api/posts.ts:197</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L198">api/posts.ts:198</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -473,7 +502,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L91">api/posts.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L92">api/posts.ts:92</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -496,7 +525,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L282">api/posts.ts:282</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L283">api/posts.ts:283</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -513,13 +542,13 @@
 					<a name="editpost" class="tsd-anchor"></a>
 					<h3>edit<wbr>Post</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">edit<wbr>Post<span class="tsd-signature-symbol">(</span>opts<span class="tsd-signature-symbol">: </span><a href="../interfaces/ieditpost.html" class="tsd-signature-type">IEditPost</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">edit<wbr>Post<span class="tsd-signature-symbol">(</span>opts<span class="tsd-signature-symbol">: </span><a href="../interfaces/ieditpost.html" class="tsd-signature-type">IEditPost</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L71">api/posts.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L72">api/posts.ts:72</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -528,7 +557,7 @@
 									<h5>opts: <a href="../interfaces/ieditpost.html" class="tsd-signature-type">IEditPost</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -542,7 +571,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L154">api/posts.ts:154</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L155">api/posts.ts:155</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -571,7 +600,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L287">api/posts.ts:287</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L288">api/posts.ts:288</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -595,14 +624,14 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#generateheaders">generateHeaders</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/utils/APIRequest.ts#L39">utils/APIRequest.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/utils/APIRequest.ts#L42">utils/APIRequest.ts:42</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>generateHeaders()
 										A function used to generate the headers that need to be
-									passed to Axios.</p>
+									passed to the request performee.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -626,7 +655,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#get">get</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/utils/APIRequest.ts#L65">utils/APIRequest.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/utils/APIRequest.ts#L98">utils/APIRequest.ts:98</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -649,7 +678,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L97">api/posts.ts:97</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L98">api/posts.ts:98</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -675,7 +704,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L345">api/posts.ts:345</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L346">api/posts.ts:346</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -698,7 +727,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L85">api/posts.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L86">api/posts.ts:86</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -721,7 +750,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L302">api/posts.ts:302</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L303">api/posts.ts:303</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -738,7 +767,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L187">api/posts.ts:187</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L188">api/posts.ts:188</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -761,7 +790,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L220">api/posts.ts:220</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L221">api/posts.ts:221</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -787,7 +816,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L169">api/posts.ts:169</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L170">api/posts.ts:170</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -813,7 +842,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L202">api/posts.ts:202</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L203">api/posts.ts:203</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -842,7 +871,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L123">api/posts.ts:123</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L124">api/posts.ts:124</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -871,7 +900,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L19">api/posts.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L20">api/posts.ts:20</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -894,7 +923,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L65">api/posts.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L66">api/posts.ts:66</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -911,7 +940,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L272">api/posts.ts:272</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L273">api/posts.ts:273</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -934,7 +963,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L248">api/posts.ts:248</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L249">api/posts.ts:249</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -960,7 +989,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L292">api/posts.ts:292</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L293">api/posts.ts:293</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -984,7 +1013,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#patch">patch</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/utils/APIRequest.ts#L110">utils/APIRequest.ts:110</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/utils/APIRequest.ts#L143">utils/APIRequest.ts:143</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1007,62 +1036,32 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
-					<a name="patchmultiform" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> patch<wbr>Multiform</h3>
+					<a name="patchformdata" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> patch<wbr>Formdata</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">patch<wbr>Multiform<span class="tsd-signature-symbol">(</span>payload<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">patch<wbr>Formdata<span class="tsd-signature-symbol">(</span>body<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#patchmultiform">patchMultiform</a></p>
+								<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#patchformdata">patchFormdata</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/utils/APIRequest.ts#L166">utils/APIRequest.ts:166</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/utils/APIRequest.ts#L202">utils/APIRequest.ts:202</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>patchMultiform()
-									POST request (Multiform)</p>
+									<p>patchFormdata()
+									PATCH request (multipart/form-data, application/x-www-form-urlencoded)</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>payload: <span class="tsd-signature-type">object</span></h5>
+									<h5>body: <span class="tsd-signature-type">object</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
-					<a name="patchurlencoded" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> patch<wbr>Urlencoded</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">patch<wbr>Urlencoded<span class="tsd-signature-symbol">(</span>payload<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#patchurlencoded">patchUrlencoded</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/utils/APIRequest.ts#L208">utils/APIRequest.ts:208</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>postUrlencoded()
-									POST request (urlencoded)</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>payload: <span class="tsd-signature-type">object</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1077,7 +1076,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#post">post</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/utils/APIRequest.ts#L95">utils/APIRequest.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/utils/APIRequest.ts#L128">utils/APIRequest.ts:128</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1100,62 +1099,32 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
-					<a name="postmultiform" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> post<wbr>Multiform</h3>
+					<a name="postformdata" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> post<wbr>Formdata</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">post<wbr>Multiform<span class="tsd-signature-symbol">(</span>payload<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">post<wbr>Formdata<span class="tsd-signature-symbol">(</span>body<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#postmultiform">postMultiform</a></p>
+								<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#postformdata">postFormdata</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/utils/APIRequest.ts#L138">utils/APIRequest.ts:138</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/utils/APIRequest.ts#L187">utils/APIRequest.ts:187</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>postMultiform()
-									POST request (Multiform)</p>
+									<p>postFormdata()
+									POST request (multipart/form-data, application/x-www-form-urlencoded)</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>payload: <span class="tsd-signature-type">object</span></h5>
+									<h5>body: <span class="tsd-signature-type">object</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
-					<a name="posturlencoded" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> post<wbr>Urlencoded</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">post<wbr>Urlencoded<span class="tsd-signature-symbol">(</span>payload<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#posturlencoded">postUrlencoded</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/utils/APIRequest.ts#L180">utils/APIRequest.ts:180</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>postUrlencoded()
-									POST request (urlencoded)</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>payload: <span class="tsd-signature-type">object</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1170,7 +1139,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#put">put</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/utils/APIRequest.ts#L80">utils/APIRequest.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/utils/APIRequest.ts#L113">utils/APIRequest.ts:113</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1193,62 +1162,32 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
-					<a name="putmultiform" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> put<wbr>Multiform</h3>
+					<a name="putformdata" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> put<wbr>Formdata</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">put<wbr>Multiform<span class="tsd-signature-symbol">(</span>payload<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">put<wbr>Formdata<span class="tsd-signature-symbol">(</span>body<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#putmultiform">putMultiform</a></p>
+								<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#putformdata">putFormdata</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/utils/APIRequest.ts#L152">utils/APIRequest.ts:152</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/utils/APIRequest.ts#L172">utils/APIRequest.ts:172</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>putMultiform()
-									POST request (Multiform)</p>
+									<p>putFormdata()
+									PUT request (multipart/form-data, application/x-www-form-urlencoded)</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>payload: <span class="tsd-signature-type">object</span></h5>
+									<h5>body: <span class="tsd-signature-type">object</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
-					<a name="puturlencoded" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> put<wbr>Urlencoded</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">put<wbr>Urlencoded<span class="tsd-signature-symbol">(</span>payload<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="apirequest.html">APIRequest</a>.<a href="apirequest.html#puturlencoded">putUrlencoded</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/utils/APIRequest.ts#L194">utils/APIRequest.ts:194</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>putUrlencoded()
-									POST request (urlencoded)</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>payload: <span class="tsd-signature-type">object</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1262,7 +1201,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L192">api/posts.ts:192</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L193">api/posts.ts:193</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1288,7 +1227,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L231">api/posts.ts:231</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L232">api/posts.ts:232</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1317,7 +1256,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L159">api/posts.ts:159</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L160">api/posts.ts:160</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1346,7 +1285,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L307">api/posts.ts:307</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L308">api/posts.ts:308</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1369,7 +1308,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L321">api/posts.ts:321</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L322">api/posts.ts:322</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1392,7 +1331,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L355">api/posts.ts:355</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L356">api/posts.ts:356</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1415,7 +1354,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L335">api/posts.ts:335</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L336">api/posts.ts:336</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1438,7 +1377,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L340">api/posts.ts:340</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L341">api/posts.ts:341</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1464,7 +1403,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L277">api/posts.ts:277</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L278">api/posts.ts:278</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1487,7 +1426,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/cbbe6b8/src/api/posts.ts#L260">api/posts.ts:260</a></li>
+									<li>Defined in <a href="https://github.com/jozsefsallai/okuna.js/blob/62a8d7e/src/api/posts.ts#L261">api/posts.ts:261</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1546,6 +1485,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported">
 								<a href="postsapi.html#requirestoken" class="tsd-kind-icon">requires<wbr>Token</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-not-exported">
+								<a href="postsapi.html#_constructformdata" class="tsd-kind-icon">_construct<wbr>Formdata</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-not-exported">
 								<a href="postsapi.html#closepost" class="tsd-kind-icon">close<wbr>Post</a>
@@ -1635,28 +1577,19 @@
 								<a href="postsapi.html#patch" class="tsd-kind-icon">patch</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
-								<a href="postsapi.html#patchmultiform" class="tsd-kind-icon">patch<wbr>Multiform</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
-								<a href="postsapi.html#patchurlencoded" class="tsd-kind-icon">patch<wbr>Urlencoded</a>
+								<a href="postsapi.html#patchformdata" class="tsd-kind-icon">patch<wbr>Formdata</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
 								<a href="postsapi.html#post" class="tsd-kind-icon">post</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
-								<a href="postsapi.html#postmultiform" class="tsd-kind-icon">post<wbr>Multiform</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
-								<a href="postsapi.html#posturlencoded" class="tsd-kind-icon">post<wbr>Urlencoded</a>
+								<a href="postsapi.html#postformdata" class="tsd-kind-icon">post<wbr>Formdata</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
 								<a href="postsapi.html#put" class="tsd-kind-icon">put</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
-								<a href="postsapi.html#putmultiform" class="tsd-kind-icon">put<wbr>Multiform</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-not-exported">
-								<a href="postsapi.html#puturlencoded" class="tsd-kind-icon">put<wbr>Urlencoded</a>
+								<a href="postsapi.html#putformdata" class="tsd-kind-icon">put<wbr>Formdata</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-not-exported">
 								<a href="postsapi.html#reacttopost" class="tsd-kind-icon">react<wbr>ToPost</a>

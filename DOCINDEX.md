@@ -70,6 +70,53 @@ const health = await client.health().getHealth();
 
 This web page contains a documentation on how exactly the API of the library works and how you should use it in your projects. You should start by reading more about [the Okuna.js Client class](classes/client.html).
 
+## Working With Files/Uploads
+
+It is very important to know how to work with file uploads when using the library. File uploads are done using the `multipart/form-data` header, so we use [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) to create a payload to be sent to the API server.
+
+When passing a file as a parameter, it should **always** have these two parameters:
+  * `file` - A blob or file input object
+  * `name` - The name of the file
+
+**Example (Node.js):**
+
+```js
+const fs = require('fs');
+const { Client } = require('okuna');
+
+// ... client setup
+
+const blob = fs.readFileSync('/path/to/file');
+
+client.posts().createPost({
+  text: 'Here is an image!',
+  image: {
+    file: blob,
+    name: 'filename_with.extension' // if you know the path, you should know the name too (you can use path.basename() here)
+  }
+})
+  .then(res => console.log(res))
+  .catch(err => console.error(err));
+```
+
+**Example (file inputs):**
+
+```js
+// ... client setup
+
+const fileInput = document.querySelector("input[name=image]");
+
+client.posts().createPost({
+  text: 'Here is an image!',
+  image: {
+    file: fileInput.files[0], // you'd probably store fileInput.files[0] in a separate variable
+    name: fileInput.files[0].name
+  }
+})
+  .then(/* ... */)
+  .catch(/* ... */);
+```
+
 ## Questions?
 
 Feel free to [open an issue in the library's Github repository](https://github.com/jozsefsallai/okuna.js/issues).
