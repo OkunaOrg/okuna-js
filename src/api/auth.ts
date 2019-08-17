@@ -14,11 +14,20 @@ import {
 } from '../typings/api/auth';
 import { FileObject } from '../utils/FileObject';
 
+/**
+ * @api public
+ * AuthAPI - provides methods to interact with the Auth API
+ */
 class AuthAPI extends APIRequest {
   constructor(opts: RequestOpts) {
     super(opts);
   }
 
+  /**
+   * `POST /api/auth/username-check/` - Promises to check if a username is available
+   * @param {string} username - The desired username
+   * @returns - a boolean
+   */
   async isUsernameAvailable(username: string) {
     this._paths.push('username-check');
     this.requiresToken = false;
@@ -36,6 +45,11 @@ class AuthAPI extends APIRequest {
     });
   }
 
+  /**
+   * `POST /api/auth/email-check/` - Promises to check if an email address is available
+   * @param {string} email - The desired email address
+   * @returns - a boolean
+   */
   async isEmailAvailable(email: string) {
     this._paths.push('email-check');
     this.requiresToken = false;
@@ -53,6 +67,11 @@ class AuthAPI extends APIRequest {
     });
   }
 
+  /**
+   * `POST /api/auth/register/` (urlencoded) - Promises to create a user
+   * @param {UserCreatorOpts} payload - The user's properties
+   * @returns - the created user
+   */
   async createUser(payload: UserCreatorOpts) {
     const { email, token, name, isOfLegalAge, areGuidelinesAccepted, password }: UserCreatorOpts = payload;
     const body = {
@@ -74,6 +93,11 @@ class AuthAPI extends APIRequest {
     return this.postFormdata(body);
   }
 
+  /**
+   * `PATCH /api/auth/user/` (urlencoded) - Promises to create a user
+   * @param {IUpdateUser} payload - The user's properties
+   * @returns - the updated user
+   */
   async updateUser(payload: IUpdateUser) {
     this._paths.push('user');
 
@@ -120,12 +144,21 @@ class AuthAPI extends APIRequest {
     return this.patchFormdata(body);
   }
 
+   /**
+   * `PATCH /api/auth/user/settings/` (urlencoded) - Promises to update the user's email
+   * @param {string} email - The desired email address
+   */
   async updateUserEmail(email: string) {
     this._paths.push('user', 'settings');
 
     return this.patchFormdata({ email });
   }
 
+  /**
+   * `PATCH /api/auth/user/settings/` (urlencoded) - Promises to update the user's passord
+   * @param {string} currentPassword - The user's current password
+   * @param {string} newPassword - The user's desired new password
+   */
   async updateUserPassword(currentPassword: string, newPassword: string) {
     this._paths.push('user', 'settings');
 
@@ -135,12 +168,20 @@ class AuthAPI extends APIRequest {
     });
   }
 
+  /**
+   * `POST /api/auth/email/verify/` - Promises to verify a user's email
+   * @param {string} token - The verification token
+   */
   async verifyEmailWithToken(token: string) {
     this._paths.push('email', 'verify');
 
     return this.post({ token });
   }
 
+  /**
+   * `GET /api/auth/user/` - Promises to get a user by auth token
+   * @param {string} authToken - The authentication token
+   */
   async getUserWithAuthToken(authToken: string) {
     this.requiresToken = false;
     (this._headers as any)['Authorization'] = `Token: ${authToken}`;
@@ -149,6 +190,11 @@ class AuthAPI extends APIRequest {
     return this.get();
   }
 
+  /**
+   * `GET /api/auth/user/` - Promises to get a user by username
+   * @param {string} username - The username to search for
+   * @param {boolean} authenticatedRequest - Checks whether the request is authenticated
+   */
   async getUserWithUsername(username: string, authenticatedRequest: boolean = true) {
     if (!authenticatedRequest) {
       this.requiresToken = false;
@@ -159,6 +205,11 @@ class AuthAPI extends APIRequest {
     return this.get();
   }
 
+  /**
+   * `GET /api/auth/user/` - Promises to get a user by a certain query
+   * @param {string} query - The search query
+   * @param {boolean} authenticatedRequest - Checks whether the request is authenticated
+   */
   async getUsersWithQuery(query: string, authenticatedRequest: boolean = true) {
     this.requiresToken = authenticatedRequest;
 
@@ -168,6 +219,10 @@ class AuthAPI extends APIRequest {
     return this.get();
   }
 
+  /**
+   * `GET /api/auth/linked-users/search/` - Promises to search a linked user
+   * @param {ISearchLinkedUsers}
+   */
   async searchLinkedUsers(opts: ISearchLinkedUsers) {
     this._paths.push('linked-users', 'search');
     this._params.query = opts.query;
@@ -183,6 +238,11 @@ class AuthAPI extends APIRequest {
     return this.get();
   }
 
+  /**
+   * `GET /api/auth/linked-users/` - Promises to get an array of linked users
+   * @param {IGetLinkedUsers}
+   * @param {boolean} authenticatedRequest - Checks whether the request is authenticated
+   */
   async getLinkedUsers(opts: IGetLinkedUsers, authenticatedRequest: boolean = true) {
     this.requiresToken = authenticatedRequest;
     this._paths.push('linked-users');
@@ -202,6 +262,11 @@ class AuthAPI extends APIRequest {
     return this.get();
   }
 
+  /**
+   * `GET /api/auth/blocked-users/search/` - Promises to search between blocked users
+   * @param {string} query - The search query
+   * @param {number | undefined} count - The max number of results
+   */
   async searchBlockedUsers(query: string, count: number | undefined = undefined) {
     this._paths.push('blocked-users', 'search');
     this._params.query = query;
@@ -213,6 +278,11 @@ class AuthAPI extends APIRequest {
     return this.get();
   }
 
+  /**
+   * `GET /api/auth/blocked-users/` - Promises to get an array of blocked users
+   * @param {LimitationParams} opts - Query limitation parameters
+   * @param {boolean} authenticatedRequest - Checks whether the request is authenticated
+   */
   async getBlockedUsers(opts: LimitationParams, authenticatedRequest: boolean = true) {
     this.requiresToken = authenticatedRequest;
     this._paths.push('blocked-users');
@@ -228,18 +298,30 @@ class AuthAPI extends APIRequest {
     return this.get();
   }
 
+  /**
+   * `POST /api/auth/users/:username/block/` - Promises to block a user by username
+   * @param {string} username - The username of the user to block
+   */
   async blockUserWithName(username: string) {
     this._paths.push('users', encodeURIComponent(username), 'block');
 
     return this.post({});
   }
 
+  /**
+   * `POST /api/auth/users/:username/unblock/` - Promises to unblock a user by username
+   * @param {string} username - The username of the user to unblock
+   */
   async unblockUserWithName(username: string) {
     this._paths.push('users', encodeURIComponent(username), 'unblock');
 
     return this.post({});
   }
 
+  /**
+   * `GET /api/auth/followers/search` - Promises to search between followers
+   * @param {ISearchFollowers}
+   */
   async searchFollowers(opts: ISearchFollowers) {
     this._paths.push('followers', 'search');
 
@@ -252,6 +334,11 @@ class AuthAPI extends APIRequest {
     return this.get();
   }
 
+  /**
+   * `GET /api/auth/followers/` - Promises to get an array of followers
+   * @param {LimitationParams} opts - Query limitation parameters
+   * @param {boolean} authenticatedRequest - Checks whether the request is authenticated
+   */
   async getFollowers(opts: LimitationParams, authenticatedRequest: boolean = true) {
     this.requiresToken = authenticatedRequest;
     this._paths.push('followers');
@@ -267,6 +354,10 @@ class AuthAPI extends APIRequest {
     return this.get();
   }
 
+  /**
+   * `GET /api/auth/followings/search` - Promises to search between followings
+   * @param {ISearchFollowings}
+   */
   async searchFollowings(opts: ISearchFollowings) {
     this._paths.push('followings', 'search');
 
@@ -279,6 +370,11 @@ class AuthAPI extends APIRequest {
     return this.get();
   }
 
+  /**
+   * `GET /api/auth/followings/` - Promises to get an array of followings
+   * @param {LimitationParams} opts - Query limitation parameters
+   * @param {boolean} authenticatedRequest - Checks whether the request is authenticated
+   */
   async getFollowings(opts: LimitationParams, authenticatedRequest: boolean = true) {
     this.requiresToken = authenticatedRequest;
     this._paths.push('followings');
@@ -294,6 +390,11 @@ class AuthAPI extends APIRequest {
     return this.get();
   }
 
+  /**
+   * `POST /api/auth/login/` - Promises to log a user in
+   * @param {string} username - The username of the user
+   * @param {string} password - The password of the user
+   */
   async login(username: string, password: string) {
     this._paths.push('login');
     this.requiresToken = false;
@@ -301,6 +402,10 @@ class AuthAPI extends APIRequest {
     return this.post({ username, password });
   }
 
+  /**
+   * `POST /api/auth/password/reset/` - Promises to initiate a password reset process
+   * @param {IRequestPasswordReset} opts
+   */
   async requestPasswordReset(opts: IRequestPasswordReset) {
     this.requiresToken = false;
     this._paths.push('password', 'reset');
@@ -308,6 +413,10 @@ class AuthAPI extends APIRequest {
     return this.post(opts);
   }
 
+  /**
+   * `POST /api/auth/password/verify/` - Promises to verify a password
+   * @param {IVerifyPasswordReset} opts
+   */
   async verifyPasswordReset(opts: IVerifyPasswordReset) {
     this.requiresToken = false;
     this._paths.push('password', 'verify');
@@ -318,30 +427,47 @@ class AuthAPI extends APIRequest {
     });
   }
 
+  /**
+   * `GET /api/auth/user/notifications-settings/` - Promises to retrieve the user's notification settings
+   */
   async getAuthenticatedUserNotificationSettings() {
     this._paths.push('user', 'notifications-settings');
 
     return this.get();
   }
 
+  /**
+   * `POST /api/auth/user/notifications-settings/` - Promises to update the user's notification settings
+   * @param {IUpdateNotificationSettings} opts
+   */
   async updateAuthenticatedUserNotificationSettings(opts: IUpdateNotificationSettings) {
     this._paths.push('user', 'notifications-settings');
 
     return this.post(opts);
   }
 
+  /**
+   * `POST /api/auth/user/accept-guidelines/` - Promises to accept the user guidelines
+   */
   async acceptGuidelines() {
     this._paths.push('user', 'accept-guidelines');
 
     return this.post({});
   }
 
+  /**
+   * `GET /auth/auth/user/languages/` - Promises to get the user's languages
+   */
   async getAllLanguages() {
     this._paths.push('user', 'languages');
 
     return this.get();
   }
 
+  /**
+   * `POST /api/auth/user/languages/` - Promises to set a new user language
+   * @param {number} languageId - The id of the desired language
+   */
   async setNewLanguage(languageId: number) {
     this._paths.push('user', 'languages');
 
@@ -350,6 +476,10 @@ class AuthAPI extends APIRequest {
     });
   }
 
+  /**
+   * `POST /api/auth/users/:username/report/` - Promises to report a user
+   * @param {IReportUser} opts
+   */
   async reportUser(opts: IReportUser) {
     this._paths.push('users', encodeURIComponent(opts.username), 'report');
 
