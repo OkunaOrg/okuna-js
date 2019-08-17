@@ -1,6 +1,6 @@
 {
   "name": "okuna",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Node.js API bindings for the Okuna social network.",
   "main": "lib/Okuna.js",
   "repository": {
@@ -19,6 +19,7 @@
     "url": "https://github.com/jozsefsallai/okuna.js/issues"
   },
   "files": [
+    "/dist",
     "/lib"
   ],
   "homepage": "https://github.com/jozsefsallai/okuna.js#readme",

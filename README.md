@@ -1,8 +1,8 @@
-# Okuna.js
+# Okuna.js (beta)
 
 [![Build Status](https://travis-ci.org/jozsefsallai/okuna.js.svg)](https://travis-ci.org/jozsefsallai/okuna.js) [![Coverage Status](https://coveralls.io/repos/github/jozsefsallai/okuna.js/badge.svg?branch=master)](https://coveralls.io/github/jozsefsallai/okuna.js?branch=master) [![npm version](https://img.shields.io/npm/v/okuna.svg?style=flat)](https://www.npmjs.com/package/okuna)
 
-A library for Node.js and the browser to connect to the Okuna API. WIP.
+A library for Node.js and the browser to connect to the Okuna API. This library is currently in **public beta**, so errors might appear here and there. If you've stumbled upon an error, please [report it in the library's issue tracker](https://github.com/jozsefsallai/okuna.js/issues/new).
 
 ## Docs
 
