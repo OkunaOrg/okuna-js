@@ -1,4 +1,5 @@
 import { LimitationParams } from '../';
+import { IFileObjectOpts } from '../../utils/FileObject';
 
 /**
  * Parameters for posts().getTimelinePosts()
@@ -24,14 +25,14 @@ export interface IGetTimelinePosts {
  * @typedef {object} ICreatePost
  * @property {string} text - the full text of the post
  * @property {number[]} circleIds - an array of circle IDs that should have access to the post
- * @property {File} image - an image file object
- * @property {File} video - a video file object
+ * @property {IFileObjectOpts} image - an image file object
+ * @property {IFileObjectOpts} video - a video file object
  */
 export interface ICreatePost {
   text: string;
   circleIds?: number[];
-  image?: File;
-  video?: File;
+  image?: IFileObjectOpts;
+  video?: IFileObjectOpts;
 }
 
 /**

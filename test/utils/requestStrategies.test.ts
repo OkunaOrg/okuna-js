@@ -64,9 +64,7 @@ describe('utils/requestStrategies', function () {
       });
 
       [
-        'get', 'post', 'put', 'patch', 'delete',
-        'postMultiform', 'putMultiform', 'patchMultiform',
-        'postUrlencoded', 'putUrlencoded', 'patchUrlencoded'
+        'get', 'post', 'put', 'patch', 'delete'
       ].forEach(method => {
         it(`has "${method}"`, function () {
           return expect(this.api[method]).to.exist;

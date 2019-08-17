@@ -1,5 +1,4 @@
 import RequestStrategy from './core';
-import queryString from '../queryString';
 
 import es6promise from 'es6-promise';
 es6promise.polyfill();
@@ -38,11 +37,15 @@ class FetchStrategy extends RequestStrategy {
     });
   }
 
-  post(url: string, body: object, opts: object): Promise<any> {
+  post(url: string, payload: object | string | FormData, opts: object): Promise<any> {
     return new Promise((resolve, reject) => {
+      const body: any = typeof payload === 'object' && payload.constructor === Object
+        ? JSON.stringify(payload)
+        : payload;
+
       return fetch(url, {
         method: 'POST',
-        body: JSON.stringify(body),
+        body,
         ...opts
       })
         .then((response) => {
@@ -62,11 +65,15 @@ class FetchStrategy extends RequestStrategy {
     });
   }
 
-  put(url: string, body: object, opts: object): Promise<any> {
+  put(url: string, payload: object | string | FormData, opts: object): Promise<any> {
     return new Promise((resolve, reject) => {
+      const body: any = typeof payload === 'object' && payload.constructor === Object
+        ? JSON.stringify(payload)
+        : payload;
+
       return fetch(url, {
         method: 'PUT',
-        body: JSON.stringify(body),
+        body,
         ...opts
       })
         .then((response) => {
@@ -86,11 +93,15 @@ class FetchStrategy extends RequestStrategy {
     });
   }
 
-  patch(url: string, body: object, opts: object): Promise<any> {
+  patch(url: string, payload: object | string | FormData, opts: object): Promise<any> {
     return new Promise((resolve, reject) => {
+      const body: any = typeof payload === 'object' && payload.constructor === Object
+        ? JSON.stringify(payload)
+        : payload;
+
       return fetch(url, {
         method: 'PATCH',
-        body: JSON.stringify(body),
+        body,
         ...opts
       })
         .then((response) => {
@@ -114,165 +125,6 @@ class FetchStrategy extends RequestStrategy {
     return new Promise((resolve, reject) => {
       return fetch(url, {
         method: 'DELETE',
-        ...opts
-      })
-        .then((response) => {
-          if (!response.ok) {
-            return reject(response);
-          }
-
-          return response.json();
-        })
-        .then(json => {
-          return {
-            data: json
-          };
-        })
-        .then(response => resolve(response))
-        .catch(err => reject(err));
-    });
-  }
-
-  postMultiform(url: string, body: object, opts: object): Promise<any> {
-    return new Promise((resolve, reject) => {
-      const data = new FormData();
-      Object.keys(body).forEach(key => {
-        data.append(key, (body as any)[key]);
-      });
-
-      return fetch(url, {
-        method: 'POST',
-        body: data,
-        ...opts
-      })
-        .then((response) => {
-          if (!response.ok) {
-            return reject(response);
-          }
-
-          return response.json();
-        })
-        .then(json => {
-          return {
-            data: json
-          };
-        })
-        .then(response => resolve(response))
-        .catch(err => reject(err));
-    });
-  }
-
-  putMultiform(url: string, body: object, opts: object): Promise<any> {
-    return new Promise((resolve, reject) => {
-      const data = new FormData();
-      Object.keys(body).forEach(key => {
-        data.append(key, (body as any)[key]);
-      });
-
-      return fetch(url, {
-        method: 'PUT',
-        body: data,
-        ...opts
-      })
-        .then((response) => {
-          if (!response.ok) {
-            return reject(response);
-          }
-
-          return response.json();
-        })
-        .then(json => {
-          return {
-            data: json
-          };
-        })
-        .then(response => resolve(response))
-        .catch(err => reject(err));
-    });
-  }
-
-  patchMultiform(url: string, body: object, opts: object): Promise<any> {
-    return new Promise((resolve, reject) => {
-      const data = new FormData();
-      Object.keys(body).forEach(key => {
-        data.append(key, (body as any)[key]);
-      });
-
-      return fetch(url, {
-        method: 'PATCH',
-        body: data,
-        ...opts
-      })
-        .then((response) => {
-          if (!response.ok) {
-            return reject(response);
-          }
-
-          return response.json();
-        })
-        .then(json => {
-          return {
-            data: json
-          };
-        })
-        .then(response => resolve(response))
-        .catch(err => reject(err));
-    });
-  }
-
-  postUrlencoded(url: string, body: object, opts: object): Promise<any> {
-    return new Promise((resolve, reject) => {
-      return fetch(url, {
-        method: 'POST',
-        body: queryString(body),
-        ...opts
-      })
-        .then((response) => {
-          if (!response.ok) {
-            return reject(response);
-          }
-
-          return response.json();
-        })
-        .then(json => {
-          return {
-            data: json
-          };
-        })
-        .then(response => resolve(response))
-        .catch(err => reject(err));
-    });
-  }
-
-  putUrlencoded(url: string, body: object, opts: object): Promise<any> {
-    return new Promise((resolve, reject) => {
-      return fetch(url, {
-        method: 'PUT',
-        body: queryString(body),
-        ...opts
-      })
-        .then((response) => {
-          if (!response.ok) {
-            return reject(response);
-          }
-
-          return response.json();
-        })
-        .then(json => {
-          return {
-            data: json
-          };
-        })
-        .then(response => resolve(response))
-        .catch(err => reject(err));
-    });
-  }
-
-  patchUrlencoded(url: string, body: object, opts: object): Promise<any> {
-    return new Promise((resolve, reject) => {
-      return fetch(url, {
-        method: 'PATCH',
-        body: queryString(body),
         ...opts
       })
         .then((response) => {

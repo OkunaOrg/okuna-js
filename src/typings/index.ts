@@ -38,16 +38,10 @@ export interface IRequestStrategy {
   name: string;
 
   get(url: string, opts: object): Promise<any>;
-  post(url: string, body: object, opts: object): Promise<any>;
-  put(url: string, body: object, opts: object): Promise<any>;
-  patch(url: string, body: object, opts: object): Promise<any>;
+  post(url: string, body: object | string | FormData, opts: object): Promise<any>;
+  put(url: string, body: object | string | FormData, opts: object): Promise<any>;
+  patch(url: string, body: object | string | FormData, opts: object): Promise<any>;
   delete(url: string, opts: object): Promise<any>;
-  postMultiform(url: string, body: object, opts: object): Promise<any>;
-  putMultiform(url: string, body: object, opts: object): Promise<any>;
-  patchMultiform(url: string, body: object, opts: object): Promise<any>;
-  postUrlencoded(url: string, body: object, opts: object): Promise<any>;
-  putUrlencoded(url: string, body: object, opts: object): Promise<any>;
-  patchUrlencoded(url: string, body: object, opts: object): Promise<any>;
 }
 
 /**

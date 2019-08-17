@@ -11,6 +11,7 @@ import {
   IUpdateNotificationSettings,
   IReportUser
 } from '../typings/api/auth';
+import { FileObject } from '../utils/FileObject';
 
 class AuthAPI extends APIRequest {
   constructor(opts: RequestOpts) {
@@ -62,27 +63,26 @@ class AuthAPI extends APIRequest {
       password
     };
 
-    // WIP
-    if (payload.avatar && payload.avatar.name) {
-      (body as any)['avatar'] = payload.avatar;
+    if (payload.avatar) {
+      (body as any)['avatar'] = new FileObject(payload.avatar);
     }
 
     this._paths.push('register');
     this.requiresToken = false;
 
-    return this.postUrlencoded(body);
+    return this.postFormdata(body);
   }
 
   async updateUserEmail(email: string) {
     this._paths.push('user', 'settings');
 
-    return this.patchUrlencoded({ email });
+    return this.patchFormdata({ email });
   }
 
   async updateUserPassword(currentPassword: string, newPassword: string) {
     this._paths.push('user', 'settings');
 
-    return this.patchUrlencoded({
+    return this.patchFormdata({
       current_password: currentPassword,
       new_password: newPassword
     });

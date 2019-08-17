@@ -12,15 +12,7 @@ class CirclesAPI extends APIRequest {
   }
 
   async createCircle(opts: ICreateCircle) {
-    const body: any = {
-      name: opts.name
-    };
-
-    if (opts.color) {
-      body.color = opts.color;
-    }
-
-    return this.put(body);
+    return this.put(opts);
   }
 
   async updateCircle(id: number, opts: IUpdateCircle) {

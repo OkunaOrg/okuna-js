@@ -1,4 +1,5 @@
 import { LimitationParams } from '../';
+import { IFileObjectOpts } from '../../utils/FileObject';
 
 /**
  * Parameters for communities().createCommunity()
@@ -13,8 +14,8 @@ import { LimitationParams } from '../';
  * @property {string} usersAdjective - the adjective to be used for "users" (plural), e.g.: "geeks"
  * @property {string} description - the description of the group
  * @property {string} rules - the rules of the group
- * @property {File} cover - the cover photo of the group
- * @property {File} avatar - the avatar picture of the group
+ * @property {IFileObjectOpts} cover - the cover photo of the group
+ * @property {IFileObjectOpts} avatar - the avatar picture of the group
  */
 export interface ICreateCommunity {
   name: string;
@@ -27,8 +28,8 @@ export interface ICreateCommunity {
   usersAdjective?: string;
   description?: string;
   rules?: string;
-  cover?: File;
-  avatar?: File;
+  cover?: IFileObjectOpts;
+  avatar?: IFileObjectOpts;
 }
 
 /**

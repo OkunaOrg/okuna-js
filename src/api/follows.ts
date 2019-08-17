@@ -10,6 +10,14 @@ class FollowsAPI extends APIRequest {
   async follow(opts: IUserFollows) {
     this._paths.push('follow');
 
+    const body: any = {
+      username: opts.username
+    };
+
+    if (opts.listIds && opts.listIds.length) {
+      body.lists_ids = opts.listIds;
+    }
+
     return this.post(opts);
   }
 

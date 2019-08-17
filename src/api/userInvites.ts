@@ -13,13 +13,13 @@ class UserInvitesAPI extends APIRequest {
       (body as any)['nickname'] = nickname;
     }
 
-    return this.putUrlencoded(body);
+    return this.putFormdata(body);
   }
 
   async update(id: number, nickname: string) {
     this._paths.push(id.toString());
 
-    return this.patchUrlencoded({ nickname });
+    return this.patchFormdata({ nickname });
   }
 
   async getUserInvites(

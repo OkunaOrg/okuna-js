@@ -10,19 +10,41 @@ class ConnectionsAPI extends APIRequest {
   async connect(opts: IUserConnection) {
     this._paths.push('connect');
 
-    return this.post(opts);
+    const body: any = {
+      username: opts.username
+    };
+
+    if (opts.circleIds && opts.circleIds.length) {
+      body.circles_ids = opts.circleIds;
+    }
+
+    return this.post(body);
   }
 
   async confirm(opts: IUserConnection) {
     this._paths.push('confirm');
 
-    return this.post(opts);
+    const body: any = {
+      username: opts.username
+    };
+
+    if (opts.circleIds && opts.circleIds.length) {
+      body.circles_ids = opts.circleIds;
+    }
+
+    return this.post(body);
   }
 
   async update(opts: IUserConnection) {
-    this._paths.push('update');
+    const body: any = {
+      username: opts.username
+    };
 
-    return this.post(opts);
+    if (opts.circleIds && opts.circleIds.length) {
+      body.circles_ids = opts.circleIds;
+    }
+
+    return this.post(body);
   }
 
   async disconnect(username: string) {

@@ -1,5 +1,6 @@
 import { APIRequest } from '../../utils/APIRequest';
 import { LimitationParams } from '../';
+import { IFileObjectOpts } from '../../utils/FileObject';
 
 /**
  * User creator options
@@ -10,7 +11,7 @@ import { LimitationParams } from '../';
  * @property {boolean} isOfLegalAge
  * @property {boolean} areGuidelinesAccepted
  * @property {string} password
- * @property {File} avatar
+ * @property {IFileObjectOpts} avatar
  */
 export interface UserCreatorOpts {
   email: string;
@@ -19,7 +20,7 @@ export interface UserCreatorOpts {
   isOfLegalAge: boolean;
   areGuidelinesAccepted: boolean;
   password: string;
-  avatar?: File;
+  avatar?: IFileObjectOpts;
 }
 
 /**

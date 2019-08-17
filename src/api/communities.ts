@@ -21,6 +21,7 @@ import {
 } from '../typings/api/communities';
 
 import { IGetGlobalModeratedObjects } from '../typings/api/moderation';
+import { FileObject, IFileObjectOpts } from '../utils/FileObject';
 
 class CommunitiesAPI extends APIRequest {
   constructor(opts: RequestOpts) {
@@ -28,7 +29,7 @@ class CommunitiesAPI extends APIRequest {
   }
 
   async checkNameIsAvailable(name: string) {
-    this._paths.push('name-heck');
+    this._paths.push('name-check');
     return this.post({ name });
   }
 
@@ -48,12 +49,12 @@ class CommunitiesAPI extends APIRequest {
 
     const payload: any = {};
     
-    if (opts.image && opts.image.name) {
-      payload['image'] = opts.image;
+    if (opts.image) {
+      payload['image'] = new FileObject(opts.image);
     }
 
-    if (opts.video && opts.video.name) {
-      payload['video'] = opts.video;
+    if (opts.video) {
+      payload['video'] = new FileObject(opts.video);
     }
 
     if (opts.text) {
@@ -64,7 +65,7 @@ class CommunitiesAPI extends APIRequest {
       payload['circle_id'] = opts.circleIds.join(',');
     }
 
-    return this.putUrlencoded(payload);
+    return this.putFormdata(payload);
   }
 
   async getPostsForCommunity(name: string, opts: LimitationParamsWithAuthenticationCheck) {
@@ -120,12 +121,12 @@ class CommunitiesAPI extends APIRequest {
       type: opts.type
     };
 
-    if (opts.avatar && opts.avatar.name) {
-      payload.avatar = opts.avatar;
+    if (opts.avatar) {
+      payload.avatar = new FileObject(opts.avatar);
     }
 
-    if (opts.cover && opts.cover.name) {
-      payload.cover = opts.cover;
+    if (opts.cover) {
+      payload.cover = new FileObject(opts.cover);
     }
 
     if (opts.color) {
@@ -152,7 +153,7 @@ class CommunitiesAPI extends APIRequest {
       payload.invites_enabled = opts.invitesEnabled;
     }
 
-    return this.putUrlencoded(payload);
+    return this.putFormdata(payload);
   }
 
   async updateCommunity(name: string, opts: IUpdateCommunity) {
@@ -200,17 +201,17 @@ class CommunitiesAPI extends APIRequest {
       payload.invites_enabled = opts.invitesEnabled;
     }
 
-    return this.patchUrlencoded(payload);
+    return this.patchFormdata(payload);
   }
 
-  async updateCommunityAvatar(name: string, avatar: File) {
+  async updateCommunityAvatar(name: string, avatar: IFileObjectOpts) {
     if (!avatar.name) {
       throw new Error('Invalid community avatar!');
     }
 
     this._paths.push(encodeURIComponent(name), 'avatar');
 
-    return this.putUrlencoded({ avatar });
+    return this.putFormdata({ avatar: new FileObject(avatar) });
   }
 
   async deleteCommunityAvatar(name: string) {
@@ -218,14 +219,14 @@ class CommunitiesAPI extends APIRequest {
     return this.delete();
   }
 
-  async updateCommunityCover(name: string, cover: File) {
+  async updateCommunityCover(name: string, cover: IFileObjectOpts) {
     if (!cover.name) {
       throw new Error('Invalid community cover!');
     }
 
     this._paths.push(encodeURIComponent(name), 'cover');
 
-    return this.putUrlencoded({ cover });
+    return this.putFormdata({ cover: new FileObject(cover) });
   }
 
   async deleteCommunityCover(name: string) {

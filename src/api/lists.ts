@@ -12,13 +12,33 @@ class ListsAPI extends APIRequest {
   }
 
   async createList(opts: ICreateList) {
-    return this.put(opts);
+    const body: any = {
+      name: opts.name
+    };
+
+    if (opts.emojiId !== undefined) {
+      body.emoji_id = opts.emojiId;
+    }
+
+    return this.put(body);
   }
 
   async updateList(id: number, opts: IUpdateList) {
     this._paths.push(id.toString());
 
-    return this.patch(opts);
+    const body: any = {
+      name: opts.name,
+    };
+
+    if (opts.emojiId !== undefined) {
+      body.emoji_id = opts.emojiId;
+    }
+
+    if (opts.usernames && opts.usernames.length) {
+      body.usernames = opts.usernames;
+    }
+
+    return this.patch(body);
   }
 
   async deleteList(id: number) {

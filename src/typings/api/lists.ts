@@ -8,7 +8,7 @@ import { APIRequest } from '../../utils/APIRequest';
  */
 export interface ICreateList {
   name: string;
-  emojiId?: number;
+  emojiId: number;
 }
 
 /**

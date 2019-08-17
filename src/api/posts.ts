@@ -10,6 +10,7 @@ import {
   IGetPostParticipants,
   ISearchPostParticipants
 } from '../typings/api/posts';
+import { FileObject } from '../utils/FileObject';
 
 class PostsAPI extends APIRequest {
   constructor(opts: RequestOpts) {
@@ -43,12 +44,12 @@ class PostsAPI extends APIRequest {
   async createPost(opts: ICreatePost) {
     const payload: any = {};
     
-    if (opts.image && opts.image.name) {
-      payload['image'] = opts.image;
+    if (opts.image) {
+      payload['image'] = new FileObject(opts.image);
     }
 
-    if (opts.video && opts.video.name) {
-      payload['video'] = opts.video;
+    if (opts.video) {
+      payload['video'] = new FileObject(opts.video);
     }
 
     if (opts.text) {
@@ -59,7 +60,7 @@ class PostsAPI extends APIRequest {
       payload['circle_id'] = opts.circleIds.join(',');
     }
 
-    return this.putUrlencoded(payload);
+    return this.putFormdata(payload);
   }
 
   async getTrendingPosts() {
@@ -79,7 +80,7 @@ class PostsAPI extends APIRequest {
       payload['text'] = opts.text;
     }
 
-    return this.patchUrlencoded(payload);
+    return this.patchFormdata(payload);
   }
 
   async getPostWithUuid(uuid: string) {

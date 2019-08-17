@@ -40,7 +40,7 @@ class Client {
     this.magicHeaderName = magicHeader.name;
     this.magicHeaderValue = magicHeader.value;
     
-    this.requestStrategy = opts.requestStrategy || 'axios';
+    this.requestStrategy = opts.requestStrategy || 'fetch';
   }
 
   /**
