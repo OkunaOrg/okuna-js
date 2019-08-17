@@ -36,9 +36,9 @@ describe('Client', function () {
     });
 
     describe('.requestStrategy', function () {
-      it('should default to axios', function () {
+      it('should default to fetch', function () {
         const client = new Client({ authToken: 'my-token' });
-        return expect(client.requestStrategy).to.eql('axios');
+        return expect(client.requestStrategy).to.eql('fetch');
       });
     });
 
