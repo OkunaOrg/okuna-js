@@ -2,6 +2,7 @@ import { APIRequest } from '../utils/APIRequest';
 import { RequestOpts, LimitationParams } from '../typings';
 import {
   UserCreatorOpts,
+  IUpdateUser,
   ISearchLinkedUsers,
   IGetLinkedUsers,
   ISearchFollowers,
@@ -71,6 +72,52 @@ class AuthAPI extends APIRequest {
     this.requiresToken = false;
 
     return this.postFormdata(body);
+  }
+
+  async updateUser(payload: IUpdateUser) {
+    this._paths.push('user');
+
+    const { avatar, cover, name, username, url, followersCountVisible, bio, location }: IUpdateUser = payload;
+
+    const body: any = {};
+
+    if (avatar !== undefined) {
+      body.avatar = avatar === null
+        ? avatar
+        : new FileObject(avatar);
+    }
+
+    if (cover !== undefined) {
+      body.cover = cover === null
+        ? cover
+        : new FileObject(cover);
+    }
+
+    if (name) {
+      body.name = name;
+    }
+
+    if (username) {
+      body.username = username;
+    }
+
+    if (url) {
+      body.url = url;
+    }
+
+    if (bio) {
+      body.bio = bio;
+    }
+
+    if (followersCountVisible !== undefined) {
+      body.followers_count_visible = followersCountVisible;
+    }
+
+    if (location) {
+      body.location = location;
+    }
+
+    return this.patchFormdata(body);
   }
 
   async updateUserEmail(email: string) {

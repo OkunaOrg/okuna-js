@@ -24,6 +24,29 @@ export interface UserCreatorOpts {
 }
 
 /**
+ * Parameters for auth().updateUser()
+ * @typedef {object} IUpdateUser
+ * @property {IFileObjectOpts} avatar
+ * @property {IFileObjectOpts} cover
+ * @property {string} name
+ * @property {string} username
+ * @property {string} url
+ * @property {boolean} followersCountVisible
+ * @property {string} bio
+ * @property {string} location
+ */
+export interface IUpdateUser {
+  avatar?: IFileObjectOpts;
+  cover?: IFileObjectOpts;
+  name?: string;
+  username?: string;
+  url?: string;
+  followersCountVisible?: boolean;
+  bio?: string;
+  location?: string;
+}
+
+/**
  * Parameters for auth().searchLinkedUsers()
  * @typedef {object} ISearchLinkedUsers
  * @property {string} query - search query
@@ -157,6 +180,13 @@ export interface AuthAPI extends APIRequest {
    * @returns - the created user
    */
   createUser(payload: UserCreatorOpts): Promise<any>;
+
+  /**
+   * `PATCH /api/auth/user/` (urlencoded) - Promises to create a user
+   * @param {IUpdateUser} payload - The user's properties
+   * @returns - the updated user
+   */
+  updateUser(payload: IUpdateUser): Promise<any>;
 
   /**
    * `PATCH /api/auth/user/settings/` (urlencoded) - Promises to update the user's email
