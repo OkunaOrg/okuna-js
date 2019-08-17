@@ -1,6 +1,6 @@
 {
   "name": "okuna",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Node.js API bindings for the Okuna social network.",
   "main": "lib/Okuna.js",
   "repository": {
@@ -46,7 +46,8 @@
     "axios": "^0.19.0",
     "es6-promise": "^4.2.8",
     "isomorphic-fetch": "^2.2.1",
-    "isomorphic-form-data": "^2.0.0"
+    "isomorphic-form-data": "^2.0.0",
+    "tslib": "^1.10.0"
   },
   "scripts": {
     "build": "rm -rf lib && tsc",
