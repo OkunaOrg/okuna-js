@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     working_directory: ~/repo
-        
+
     docker:
       - image: circleci/node:8.6
     
@@ -13,21 +13,21 @@ jobs:
         keys:
           - yarn-packages-{{ checksum "yarn.lock" }}
       
-      - run
+      - run:
         name: install dependencies
         command: yarn
       
-      - save_cache
+      - save_cache:
         name: save yarn cache
         key: yarn-packages-{{ checksum "yarn.lock" }}
         paths:
           - ~/.cache/yarn
       
-      - run
+      - run:
         name: lint
         command: yarn lint
 
-      - run
+      - run:
         name: test and coverage
         command: yarn test:cover
       
