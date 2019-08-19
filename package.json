@@ -1,11 +1,11 @@
 {
   "name": "okuna",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Node.js API bindings for the Okuna social network.",
   "main": "lib/Okuna.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jozsefsallai/okuna.js.git"
+    "url": "git+https://github.com/OkunaOrg/okuna-js.git"
   },
   "keywords": [
     "okuna",
@@ -16,13 +16,13 @@
   "author": "@jozsefsallai",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jozsefsallai/okuna.js/issues"
+    "url": "https://github.com/OkunaOrg/okuna-js/issues"
   },
   "files": [
     "/dist",
     "/lib"
   ],
-  "homepage": "https://github.com/jozsefsallai/okuna.js#readme",
+  "homepage": "https://github.com/OkunaOrg/okuna-js#readme",
   "devDependencies": {
     "@types/chai": "^4.2.0",
     "@types/chai-as-promised": "^7.1.2",

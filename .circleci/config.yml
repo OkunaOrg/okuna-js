@@ -1,0 +1,33 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/repo
+        
+    docker:
+      - image: circleci/node:8.6
+    
+    steps:
+      - checkout
+      - restore_cache:
+        name: restore yarn cache
+        keys:
+          - yarn-packages-{{ checksum "yarn.lock" }}
+      
+      - run
+        name: install dependencies
+        command: yarn
+      
+      - save_cache
+        name: save yarn cache
+        key: yarn-packages-{{ checksum "yarn.lock" }}
+        paths:
+          - ~/.cache/yarn
+      
+      - run
+        name: lint
+        command: yarn lint
+
+      - run
+        name: test and coverage
+        command: yarn test:cover
+      
