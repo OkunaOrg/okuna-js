@@ -31,7 +31,6 @@
     "@types/node": "^12.7.1",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
-    "coveralls": "^3.0.6",
     "mocha": "^6.2.0",
     "nock": "^10.0.6",
     "nyc": "^14.1.1",
@@ -51,7 +50,6 @@
   },
   "scripts": {
     "build": "rm -rf lib && tsc",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "docs": "typedoc",
     "lint": "tslint --project .",
     "prepack": "npm run build && webpack",

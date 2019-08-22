@@ -1,10 +1,21 @@
 <img alt="Okuna logo" src="https://i.snag.gy/FAgp8K.jpg" width="200">
 
-[![npm version](https://img.shields.io/npm/v/okuna.svg?style=flat)](https://www.npmjs.com/package/okuna)
+[![npm version](https://img.shields.io/npm/v/okuna.svg?style=flat-square)](https://www.npmjs.com/package/okuna) [![CircleCI](https://circleci.com/gh/OkunaOrg/okuna-js/tree/master.svg?style=svg)](https://circleci.com/gh/OkunaOrg/okuna-js/tree/master) [![Maintainability](https://api.codeclimate.com/v1/badges/ac3ecb4e41ecfc2ecaf8/maintainability)](https://codeclimate.com/github/OkunaOrg/okuna-js/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/ac3ecb4e41ecfc2ecaf8/test_coverage)](https://codeclimate.com/github/OkunaOrg/okuna-js/test_coverage) [![gitmoji badge](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square)](https://github.com/carloscuesta/gitmoji)
 
 Okuna.js (beta) - A library for Node.js and the browser to connect to the Okuna API.
 
 This library is currently in **public beta**, so errors might appear here and there. If you've stumbled upon an error, please [report it in the library's issue tracker](https://github.com/OkunaOrg/okuna-js/issues/new).
+
+## Table of Contents
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
+    + [Code of Conduct](#code-of-conduct)
+    + [License](#license)
+    + [Other issues](#other-issues)
+    + [Git commit message conventions](#git-commit-message-conventions)
+- [Getting Started](#getting-started)
 
 ## Requirements
 * [Node.js](https://nodejs.org/en/) (>=8.x is recommended)
@@ -24,7 +35,7 @@ or Yarn:
 yarn add okuna
 ```
 
-## Docs
+## Documentation
 
 You can read the library documentation [here](https://okunaorg.github.io/okuna-js/).
 
@@ -83,31 +94,31 @@ yarn
 
 #### To run a development build:
 
-```
+```sh
 yarn watch
 ```
 
 #### To make a single build of the files:
 
-```
+```sh
 yarn build
 ```
 
 #### To build for both Node and the browser, run:
 
-```
+```sh
 yarn prepare
 ```
 
 #### Make sure that your changes pass linting:
 
-```
+```sh
 yarn lint
 ```
 
 #### ...and that your tests are okay:
 
-```
+```sh
 yarn test
 ```
 

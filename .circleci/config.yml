@@ -14,20 +14,28 @@ jobs:
             - yarn-packages-{{ checksum "yarn.lock" }}
       
       - run:
-          name: install dependencies
+          name: Installing dependencies - Yarn
           command: yarn
       
       - save_cache:
-          name: save yarn cache
+          name: Saving Yarn cache
           key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
       
       - run:
-          name: lint
+          name: Linting
           command: yarn lint
 
       - run:
-          name: test and coverage
-          command: yarn test:cover
-      
+          name: Setting up Code Climate
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+
+      - run:
+          name: Testing and Coverage
+          command: |
+            ./cc-test-reporter before-build
+            yarn test:cover
+            ./cc-test-reporter after-build --exit-code $?
