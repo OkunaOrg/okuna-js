@@ -119,4 +119,4 @@ client.posts().createPost({
 
 ## Questions?
 
-Feel free to [open an issue in the library's Github repository](https://github.com/jozsefsallai/okuna.js/issues).
+Feel free to [open an issue in the library's Github repository](https://github.com/OkunaOrg/okuna-js/issues).
