@@ -50,19 +50,23 @@ class CommunitiesAPI extends APIRequest {
     const payload: any = {};
     
     if (opts.image) {
-      payload['image'] = new FileObject(opts.image);
+      payload.image = new FileObject(opts.image);
     }
 
     if (opts.video) {
-      payload['video'] = new FileObject(opts.video);
+      payload.video = new FileObject(opts.video);
+    }
+
+    if (opts.isDraft !== undefined) {
+      payload.is_draft = opts.isDraft;
     }
 
     if (opts.text) {
-      payload['text'] = opts.text;
+      payload.text = opts.text;
     }
 
     if (opts.circleIds && opts.circleIds.length) {
-      payload['circle_id'] = opts.circleIds.join(',');
+      payload.circle_id = opts.circleIds.join(',');
     }
 
     return this.putFormdata(payload);

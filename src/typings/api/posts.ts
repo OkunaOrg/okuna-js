@@ -27,13 +27,24 @@ export interface IGetTimelinePosts {
  * @property {number[]} circleIds - an array of circle IDs that should have access to the post
  * @property {IFileObjectOpts} image - an image file object
  * @property {IFileObjectOpts} video - a video file object
+ * @property {boolean} isDraft - specifies whether the post is a draft
  */
 export interface ICreatePost {
   text: string;
   circleIds?: number[];
   image?: IFileObjectOpts;
   video?: IFileObjectOpts;
+  isDraft?: boolean;
 }
+
+/**
+ * Parameters for add media
+ * @typedef {object} IAddMediaOpts
+ * @property {IFileObjectOpts} file - the uploaded file
+ */
+export interface IAddMediaOpts {
+  file: IFileObjectOpts;
+};
 
 /**
  * Parameters for posts().editPost()
