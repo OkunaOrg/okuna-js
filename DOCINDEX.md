@@ -49,7 +49,7 @@ The process is nearly identical to the one of Node.js. Install the library using
 Import the bundled and minified script from the JSDelivr CDN:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/okuna@0.1/dist/okuna.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/okuna@0.2/dist/okuna.min.js"></script>
 ```
 
 This will register the `Okuna` variable in your website's DOM. You can use the library like this:
