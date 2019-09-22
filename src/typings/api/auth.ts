@@ -32,6 +32,7 @@ export interface UserCreatorOpts {
  * @property {string} username
  * @property {string} url
  * @property {boolean} followersCountVisible
+ * @property {boolean} communityPostsVisible
  * @property {string} bio
  * @property {string} location
  */
@@ -42,6 +43,7 @@ export interface IUpdateUser {
   username?: string;
   url?: string;
   followersCountVisible?: boolean;
+  communityPostsVisible?: boolean;
   bio?: string;
   location?: string;
 }

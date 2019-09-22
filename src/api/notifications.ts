@@ -1,5 +1,6 @@
 import { APIRequest } from "../utils/APIRequest";
-import { RequestOpts, LimitationParams } from '../typings';
+import { RequestOpts } from '../typings';
+import { IGetNotificationOpts } from '../typings/api/notifications';
 
 /**
  * @api public
@@ -12,9 +13,9 @@ class NotificationsAPI extends APIRequest {
 
   /**
    * `GET /api/notifications/` - promises to retrieve the user's notifications
-   * @param {LimitationParams} opts - The limitation rules
+   * @param {IGetNotificationOpts} opts - The limitation rules
    */
-  async getNotifications(opts: LimitationParams) {
+  async getNotifications(opts: IGetNotificationOpts) {
     if (opts.maxId) {
       this._params.maxId = opts.maxId;
     }
@@ -23,17 +24,31 @@ class NotificationsAPI extends APIRequest {
       this._params.count = opts.count;
     }
 
+    if (opts.types && opts.types.length) {
+      this._params.types = opts.types.join(',');
+    }
+
     return this.get();
   }
 
   /**
    * `POST /api/notifications/read/` - promises to mark notifications as read
-   * @param {LimitationParams} opts - The limitation rules
+   * @param {IGetNotificationOpts} opts - The limitation rules
    */
-  async readNotifications(opts: LimitationParams) {
+  async readNotifications(opts: IGetNotificationOpts) {
     this._paths.push('read');
 
-    return this.post(opts);
+    const body: any = {};
+
+    if (opts.maxId) {
+      body.max_id = opts.maxId;
+    }
+
+    if (opts.types && opts.types.length) {
+      body.types = opts.types.join(',');
+    }
+
+    return this.post(body);
   }
 
   /**

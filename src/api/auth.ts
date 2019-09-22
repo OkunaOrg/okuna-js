@@ -101,7 +101,17 @@ class AuthAPI extends APIRequest {
   async updateUser(payload: IUpdateUser) {
     this._paths.push('user');
 
-    const { avatar, cover, name, username, url, followersCountVisible, bio, location }: IUpdateUser = payload;
+    const {
+      avatar,
+      cover,
+      name,
+      username,
+      url,
+      followersCountVisible,
+      communityPostsVisible,
+      bio,
+      location
+    }: IUpdateUser = payload;
 
     const body: any = {};
 
@@ -135,6 +145,10 @@ class AuthAPI extends APIRequest {
 
     if (followersCountVisible !== undefined) {
       body.followers_count_visible = followersCountVisible;
+    }
+
+    if (communityPostsVisible !== undefined) {
+      body.community_posts_visible = communityPostsVisible;
     }
 
     if (location) {

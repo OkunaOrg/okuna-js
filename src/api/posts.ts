@@ -8,7 +8,8 @@ import {
   IReportPost,
   IReportPostComment,
   IGetPostParticipants,
-  ISearchPostParticipants
+  ISearchPostParticipants,
+  IAddMediaOpts
 } from '../typings/api/posts';
 import { FileObject } from '../utils/FileObject';
 
@@ -43,17 +44,13 @@ class PostsAPI extends APIRequest {
 
   async createPost(opts: ICreatePost) {
     const payload: any = {};
-    
-    if (opts.image) {
-      payload['image'] = new FileObject(opts.image);
-    }
-
-    if (opts.video) {
-      payload['video'] = new FileObject(opts.video);
-    }
 
     if (opts.text) {
       payload['text'] = opts.text;
+    }
+
+    if (opts.isDraft !== undefined) {
+      payload['is_draft'] = opts.isDraft;
     }
 
     if (opts.circleIds && opts.circleIds.length) {
@@ -61,6 +58,30 @@ class PostsAPI extends APIRequest {
     }
 
     return this.putFormdata(payload);
+  }
+
+  async addMediaToPost(uuid: string, opts: IAddMediaOpts) {
+    this._paths.push(encodeURIComponent(uuid), 'media');
+    const payload = {
+      file: new FileObject(opts.file)
+    };
+
+    return this.putFormdata(payload);
+  }
+
+  async getPostMedia(uuid: string) {
+    this._paths.push(encodeURIComponent(uuid), 'media');
+    return this.get();
+  }
+
+  async publishPost(uuid: string) {
+    this._paths.push(encodeURIComponent(uuid), 'publish');
+    return this.post({});
+  }
+
+  async getPostStatus(uuid: string) {
+    this._paths.push(encodeURIComponent(uuid), 'status');
+    return this.get();
   }
 
   async getTrendingPosts() {
@@ -336,6 +357,11 @@ class PostsAPI extends APIRequest {
   async translatePost(uuid: string) {
     this._paths.push(encodeURIComponent(uuid), 'translate');
     return this.post({});
+  }
+
+  async getPreviewData(uuid: string) {
+    this._paths.push(encodeURIComponent(uuid), 'link-preview');
+    return this.get();
   }
 
   async translatePostComment(postUuid: string, commentId: number) {
