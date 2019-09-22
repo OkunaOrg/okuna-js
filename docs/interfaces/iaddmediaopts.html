@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IReportPost | Okuna.js</title>
+	<title>IAddMediaOpts | Okuna.js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="ireportpost.html">IReportPost</a>
+					<a href="iaddmediaopts.html">IAddMediaOpts</a>
 				</li>
 			</ul>
-			<h1>Interface IReportPost</h1>
+			<h1>Interface IAddMediaOpts</h1>
 		</div>
 	</div>
 </header>
@@ -67,20 +67,14 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Parameters for posts().reportPost()</p>
+						<p>Parameters for add media</p>
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>typedef</dt>
-						<dd><p>{object} IReportPost</p>
+						<dd><p>{object} IAddMediaOpts</p>
 						</dd>
 						<dt>property</dt>
-						<dd><p>{string} postUuid - universally unique identifier of the reported post</p>
-						</dd>
-						<dt>property</dt>
-						<dd><p>{number} moderationCategoryId - the id of the moderation category</p>
-						</dd>
-						<dt>property</dt>
-						<dd><p>{string} description - optional description of the report</p>
+						<dd><p>{IFileObjectOpts} file - the uploaded file</p>
 						</dd>
 					</dl>
 				</div>
@@ -89,12 +83,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IReportPost</span>
-						<ul class="tsd-hierarchy">
-							<li>
-								<a href="ireportpostcomment.html" class="tsd-signature-type">IReportPostComment</a>
-							</li>
-						</ul>
+						<span class="target">IAddMediaOpts</span>
 					</li>
 				</ul>
 			</section>
@@ -105,9 +94,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ireportpost.html#description" class="tsd-kind-icon">description</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ireportpost.html#moderationcategoryid" class="tsd-kind-icon">moderation<wbr>Category<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ireportpost.html#postuuid" class="tsd-kind-icon">post<wbr>Uuid</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iaddmediaopts.html#file" class="tsd-kind-icon">file</a></li>
 							</ul>
 						</section>
 					</div>
@@ -116,32 +103,12 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="description" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> description</h3>
-					<div class="tsd-signature tsd-kind-icon">description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<a name="file" class="tsd-anchor"></a>
+					<h3>file</h3>
+					<div class="tsd-signature tsd-kind-icon">file<span class="tsd-signature-symbol">:</span> <a href="ifileobjectopts.html" class="tsd-signature-type">IFileObjectOpts</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/okunaorg/okuna-js/blob/c50bb8c/src/typings/api/posts.ts#L80">typings/api/posts.ts:80</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="moderationcategoryid" class="tsd-anchor"></a>
-					<h3>moderation<wbr>Category<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">moderation<wbr>Category<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/okunaorg/okuna-js/blob/c50bb8c/src/typings/api/posts.ts#L79">typings/api/posts.ts:79</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="postuuid" class="tsd-anchor"></a>
-					<h3>post<wbr>Uuid</h3>
-					<div class="tsd-signature tsd-kind-icon">post<wbr>Uuid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/okunaorg/okuna-js/blob/c50bb8c/src/typings/api/posts.ts#L78">typings/api/posts.ts:78</a></li>
+							<li>Defined in <a href="https://github.com/okunaorg/okuna-js/blob/c50bb8c/src/typings/api/posts.ts#L46">typings/api/posts.ts:46</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -160,16 +127,10 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="ireportpost.html" class="tsd-kind-icon">IReport<wbr>Post</a>
+						<a href="iaddmediaopts.html" class="tsd-kind-icon">IAdd<wbr>Media<wbr>Opts</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ireportpost.html#description" class="tsd-kind-icon">description</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ireportpost.html#moderationcategoryid" class="tsd-kind-icon">moderation<wbr>Category<wbr>Id</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ireportpost.html#postuuid" class="tsd-kind-icon">post<wbr>Uuid</a>
+								<a href="iaddmediaopts.html#file" class="tsd-kind-icon">file</a>
 							</li>
 						</ul>
 					</li>
