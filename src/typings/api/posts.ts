@@ -44,7 +44,7 @@ export interface ICreatePost {
  */
 export interface IAddMediaOpts {
   file: IFileObjectOpts;
-};
+}
 
 /**
  * Parameters for posts().editPost()
