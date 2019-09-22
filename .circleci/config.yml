@@ -8,24 +8,27 @@ jobs:
     
     steps:
       - checkout
+      - run:
+          name: Update npm
+          command: 'sudo npm install -g npm@latest'
+
       - restore_cache:
-          name: restore yarn cache
-          keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
+          name: Restore npm cache
+          key: dependency-cache-{{ checksum "package.json" }}
       
       - run:
-          name: Installing dependencies - Yarn
-          command: yarn
+          name: Installing dependencies
+          command: npm install
       
       - save_cache:
-          name: Saving Yarn cache
-          key: yarn-packages-{{ checksum "yarn.lock" }}
+          name: Saving npm cache
+          key: dependency-cache-{{ checksum "package.json" }}
           paths:
-            - ~/.cache/yarn
+            - ./node_modules
       
       - run:
           name: Linting
-          command: yarn lint
+          command: npm run lint
 
       - run:
           name: Setting up Code Climate
@@ -37,5 +40,5 @@ jobs:
           name: Testing and Coverage
           command: |
             ./cc-test-reporter before-build
-            yarn test:cover
+            npm run test:cover
             ./cc-test-reporter after-build --exit-code $?

@@ -88,38 +88,37 @@ cd okuna.js
 #### Install the dependencies:
 
 ```sh
-npm i -g yarn
-yarn
+npm install
 ```
 
 #### To run a development build:
 
 ```sh
-yarn watch
+npm run watch
 ```
 
 #### To make a single build of the files:
 
 ```sh
-yarn build
+npm run build
 ```
 
 #### To build for both Node and the browser, run:
 
 ```sh
-yarn prepare
+npm run prepare
 ```
 
 #### Make sure that your changes pass linting:
 
 ```sh
-yarn lint
+npm run lint
 ```
 
 #### ...and that your tests are okay:
 
 ```sh
-yarn test
+npm run test
 ```
 
 #### Happy coding 🎉!
