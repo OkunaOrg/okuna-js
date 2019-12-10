@@ -9,6 +9,7 @@ import { ConnectionsAPI } from './api/connections';
 import { DevicesAPI } from './api/devices';
 import { EmojisAPI } from './api/emojis';
 import { FollowsAPI } from './api/follows';
+import { HashtagsAPI } from './api/hashtags';
 import { HealthAPI } from './api/health';
 import { ListsAPI } from './api/lists';
 import { ModerationAPI } from './api/moderation';
@@ -22,7 +23,7 @@ import { UserInvitesAPI } from './api/userInvites';
 class Client {
   /**
    * JavaScript API bindings for the Okuna social network
-   * 
+   *
    * @param {OkunaOpts} opts
    */
 
@@ -39,7 +40,7 @@ class Client {
     const magicHeader = this._buildMagicHeader(opts.magicHeaderName, opts.magicHeaderValue);
     this.magicHeaderName = magicHeader.name;
     this.magicHeaderValue = magicHeader.value;
-    
+
     this.requestStrategy = opts.requestStrategy || 'fetch';
   }
 
@@ -133,6 +134,14 @@ class Client {
    */
   follows() {
     return new FollowsAPI({ okuna: this, endpoint: '/api/follows' });
+  }
+
+  /**
+   * hashtags()
+   * @returns {HashtagsAPI} - HashtagsAPI instance
+   */
+  hashtags() {
+    return new HashtagsAPI({ okuna: this, endpoint: '/api/hashtags' });
   }
 
   /**
