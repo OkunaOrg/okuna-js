@@ -17,6 +17,7 @@ export interface UserCreatorOpts {
   email: string;
   token: string;
   name: string;
+  username: string;
   isOfLegalAge: boolean;
   areGuidelinesAccepted: boolean;
   password: string;
@@ -103,7 +104,6 @@ export interface ISearchFollowings {
  * @property {string} email
  */
 export interface IRequestPasswordReset {
-  username: string;
   email: string;
 }
 
@@ -143,6 +143,8 @@ export interface IUpdateNotificationSettings {
   connection_request_notifications?: boolean;
   community_invite_notifications?: boolean;
   connection_confirmed_notifications?: boolean;
+  community_new_post_notifications?: boolean;
+  user_new_post_notifications?: boolean;
 }
 
 /**

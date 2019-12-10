@@ -73,11 +73,12 @@ class AuthAPI extends APIRequest {
    * @returns - the created user
    */
   async createUser(payload: UserCreatorOpts) {
-    const { email, token, name, isOfLegalAge, areGuidelinesAccepted, password }: UserCreatorOpts = payload;
+    const { email, token, name, username, isOfLegalAge, areGuidelinesAccepted, password }: UserCreatorOpts = payload;
     const body = {
       email,
       token,
       name,
+      username,
       is_of_legal_age: isOfLegalAge.toString(),
       are_guidelines_accepted: areGuidelinesAccepted.toString(),
       password
@@ -91,6 +92,15 @@ class AuthAPI extends APIRequest {
     this.requiresToken = false;
 
     return this.postFormdata(body);
+  }
+
+  /**
+   * `POST /api/auth/register/verify-token` - Promises to verify a user token
+   * @param {string} token - the token to verify
+   */
+  async verifyRegisterToken(token: string) {
+    this._paths.push('register', 'verify-token');
+    return this.post({ token });
   }
 
   /**
@@ -240,7 +250,7 @@ class AuthAPI extends APIRequest {
   async searchLinkedUsers(opts: ISearchLinkedUsers) {
     this._paths.push('linked-users', 'search');
     this._params.query = opts.query;
-    
+
     if (opts.count !== undefined) {
       this._params.count = opts.count;
     }
@@ -284,7 +294,7 @@ class AuthAPI extends APIRequest {
   async searchBlockedUsers(query: string, count: number | undefined = undefined) {
     this._paths.push('blocked-users', 'search');
     this._params.query = query;
-    
+
     if (count !== undefined) {
       this._params.count = count;
     }
@@ -330,6 +340,24 @@ class AuthAPI extends APIRequest {
     this._paths.push('users', encodeURIComponent(username), 'unblock');
 
     return this.post({});
+  }
+
+  /**
+   * `PUT /api/auth/users/:username/notifications/subscribe` - Promises to subscribe a user to notifications
+   * @param {string} username - The username of the user to subscribe
+   */
+  async subscribeUserWithUsername(username: string) {
+    this._paths.push('users', encodeURIComponent(username), 'notifications', 'subscribe');
+    return this.put({});
+  }
+
+  /**
+   * `DELETE /api/auth/users/:username/notifications/subscribe` - Promises to unsubscribe a user from notifications
+   * @param {string} username - The username of the user to unsubscribe
+   */
+  async unsubscribeUserWithUsername(username: string) {
+    this._paths.push('users', encodeURIComponent(username), 'notifications', 'subscribe');
+    return this.delete();
   }
 
   /**

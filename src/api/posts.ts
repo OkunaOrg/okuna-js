@@ -9,7 +9,9 @@ import {
   IReportPostComment,
   IGetPostParticipants,
   ISearchPostParticipants,
-  IAddMediaOpts
+  IAddMediaOpts,
+  IGetTopPostsOpts,
+  IGetTrendingPostsOpts
 } from '../typings/api/posts';
 import { FileObject } from '../utils/FileObject';
 
@@ -84,8 +86,42 @@ class PostsAPI extends APIRequest {
     return this.get();
   }
 
-  async getTrendingPosts() {
-    this._paths.push('trending');
+  async getTopPosts(opts: IGetTopPostsOpts) {
+    this._paths.push('top');
+
+    if (opts.count !== undefined) {
+      this._params.count = opts.count;
+    }
+
+    if (opts.maxId !== undefined) {
+      this._params.max_id = opts.maxId;
+    }
+
+    if (opts.minId !== undefined) {
+      this._params.min_id = opts.minId;
+    }
+
+    if (opts.excludeJoinedCommunities !== undefined) {
+      this._params.exclude_joined_communities = opts.excludeJoinedCommunities;
+    }
+
+    return this.get();
+  }
+
+  async getTrendingPosts(opts: IGetTrendingPostsOpts) {
+    this._paths.push('trending', 'new');
+
+    if (opts.count !== undefined) {
+      this._params.count = opts.count;
+    }
+
+    if (opts.maxId !== undefined) {
+      this._params.max_id = opts.maxId;
+    }
+
+    if (opts.minId !== undefined) {
+      this._params.min_id = opts.minId;
+    }
 
     return this.get();
   }
@@ -171,6 +207,11 @@ class PostsAPI extends APIRequest {
   async commentOnPost(uuid: string, text: string) {
     this._paths.push(encodeURIComponent(uuid), 'comments');
     return this.put({ text });
+  }
+
+  async getPostComment(postUuid: string, commentId: number) {
+    this._paths.push(encodeURIComponent(postUuid), 'comments', commentId.toString());
+    return this.get();
   }
 
   async editPostComment(postUuid: string, commentId: number, text: string) {

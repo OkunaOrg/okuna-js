@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ISearchJoinedCommunities | Okuna.js</title>
+	<title>IReportHashtagOpts | Okuna.js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="isearchjoinedcommunities.html">ISearchJoinedCommunities</a>
+					<a href="ireporthashtagopts.html">IReportHashtagOpts</a>
 				</li>
 			</ul>
-			<h1>Interface ISearchJoinedCommunities</h1>
+			<h1>Interface IReportHashtagOpts</h1>
 		</div>
 	</div>
 </header>
@@ -67,17 +67,20 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Parameters for communities().searchJoinedCommunities()</p>
+						<p>Parameters for hashtags().reportHashtagByName()</p>
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>typedef</dt>
-						<dd><p>{object} ISearchJoinedCommunities</p>
+						<dd><p>{IReportHashtagOpts}</p>
 						</dd>
-						<dt>property</dt>
-						<dd><p>{string} query - the search query</p>
+						<dt>param</dt>
+						<dd><p>the name of the hashtag to report</p>
 						</dd>
-						<dt>property</dt>
-						<dd><p>{number} count - max number of results</p>
+						<dt>param</dt>
+						<dd><p>the ID of the report moderation category</p>
+						</dd>
+						<dt>param</dt>
+						<dd><p>an optional description of the hashtag report</p>
 						</dd>
 					</dl>
 				</div>
@@ -86,7 +89,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ISearchJoinedCommunities</span>
+						<span class="target">IReportHashtagOpts</span>
 					</li>
 				</ul>
 			</section>
@@ -97,8 +100,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="isearchjoinedcommunities.html#count" class="tsd-kind-icon">count</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="isearchjoinedcommunities.html#query" class="tsd-kind-icon">query</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ireporthashtagopts.html#description" class="tsd-kind-icon">description</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ireporthashtagopts.html#hashtagname" class="tsd-kind-icon">hashtag<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ireporthashtagopts.html#moderationcategoryid" class="tsd-kind-icon">moderation<wbr>Category<wbr>Id</a></li>
 							</ul>
 						</section>
 					</div>
@@ -107,22 +111,32 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="count" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> count</h3>
-					<div class="tsd-signature tsd-kind-icon">count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<a name="description" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> description</h3>
+					<div class="tsd-signature tsd-kind-icon">description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/okunaorg/okuna-js/blob/f289c7d/src/typings/api/communities.ts#L101">typings/api/communities.ts:101</a></li>
+							<li>Defined in <a href="https://github.com/okunaorg/okuna-js/blob/ea4bcfe/src/typings/api/hashtags.ts#L11">typings/api/hashtags.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="query" class="tsd-anchor"></a>
-					<h3>query</h3>
-					<div class="tsd-signature tsd-kind-icon">query<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="hashtagname" class="tsd-anchor"></a>
+					<h3>hashtag<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">hashtag<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/okunaorg/okuna-js/blob/f289c7d/src/typings/api/communities.ts#L100">typings/api/communities.ts:100</a></li>
+							<li>Defined in <a href="https://github.com/okunaorg/okuna-js/blob/ea4bcfe/src/typings/api/hashtags.ts#L9">typings/api/hashtags.ts:9</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="moderationcategoryid" class="tsd-anchor"></a>
+					<h3>moderation<wbr>Category<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">moderation<wbr>Category<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/okunaorg/okuna-js/blob/ea4bcfe/src/typings/api/hashtags.ts#L10">typings/api/hashtags.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -141,13 +155,16 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="isearchjoinedcommunities.html" class="tsd-kind-icon">ISearch<wbr>Joined<wbr>Communities</a>
+						<a href="ireporthashtagopts.html" class="tsd-kind-icon">IReport<wbr>Hashtag<wbr>Opts</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="isearchjoinedcommunities.html#count" class="tsd-kind-icon">count</a>
+								<a href="ireporthashtagopts.html#description" class="tsd-kind-icon">description</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="isearchjoinedcommunities.html#query" class="tsd-kind-icon">query</a>
+								<a href="ireporthashtagopts.html#hashtagname" class="tsd-kind-icon">hashtag<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ireporthashtagopts.html#moderationcategoryid" class="tsd-kind-icon">moderation<wbr>Category<wbr>Id</a>
 							</li>
 						</ul>
 					</li>

@@ -47,6 +47,28 @@ export interface IAddMediaOpts {
 }
 
 /**
+ * Parameters for top posts getter
+ * @typedef {object} IGetTopPostsOpts
+ * @extends {LimitationParams}
+ * @property {number} minId - minimum id of post
+ * @property {boolean} excludeJoinedCommunities - whether or not it should exclude posts user's communities
+ */
+export interface IGetTopPostsOpts extends LimitationParams {
+  minId?: number;
+  excludeJoinedCommunities?: boolean;
+}
+
+/**
+ * Parameters for trending posts getter
+ * @typedef {object} IGetTrendingPostsOpts
+ * @extends {LimitationParams}
+ * @property {number} minId - minimum id of post
+ */
+export interface IGetTrendingPostsOpts extends LimitationParams {
+  minId?: number;
+}
+
+/**
  * Parameters for posts().editPost()
  * @typedef {object} IEditPost
  * @property {string} uuid - the universally unique identifier of the post
