@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ISearchMembers | Okuna.js</title>
+	<title>IGetTrendingPostsOpts | Okuna.js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="isearchmembers.html">ISearchMembers</a>
+					<a href="igettrendingpostsopts.html">IGetTrendingPostsOpts</a>
 				</li>
 			</ul>
-			<h1>Interface ISearchMembers</h1>
+			<h1>Interface IGetTrendingPostsOpts</h1>
 		</div>
 	</div>
 </header>
@@ -67,17 +67,17 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Parameters for communities().searchMembers()</p>
+						<p>Parameters for trending posts getter</p>
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>typedef</dt>
-						<dd><p>{object} ISearchMembers</p>
+						<dd><p>{object} IGetTrendingPostsOpts</p>
 						</dd>
 						<dt>extends</dt>
-						<dd><p>IGetMembersForCommunity</p>
+						<dd><p>{LimitationParams}</p>
 						</dd>
 						<dt>property</dt>
-						<dd><p>{string} query - the search query</p>
+						<dd><p>{number} minId - minimum id of post</p>
 						</dd>
 					</dl>
 				</div>
@@ -86,10 +86,10 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="igetmembersforcommunity.html" class="tsd-signature-type">IGetMembersForCommunity</a>
+						<a href="limitationparams.html" class="tsd-signature-type">LimitationParams</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">ISearchMembers</span>
+								<span class="target">IGetTrendingPostsOpts</span>
 							</li>
 						</ul>
 					</li>
@@ -102,10 +102,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="isearchmembers.html#count" class="tsd-kind-icon">count</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="isearchmembers.html#exclude" class="tsd-kind-icon">exclude</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="isearchmembers.html#maxid" class="tsd-kind-icon">max<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="isearchmembers.html#query" class="tsd-kind-icon">query</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="igettrendingpostsopts.html#count" class="tsd-kind-icon">count</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="igettrendingpostsopts.html#maxid" class="tsd-kind-icon">max<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="igettrendingpostsopts.html#minid" class="tsd-kind-icon">min<wbr>Id</a></li>
 							</ul>
 						</section>
 					</div>
@@ -125,17 +124,6 @@
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="exclude" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> exclude</h3>
-					<div class="tsd-signature tsd-kind-icon">exclude<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="igetmembersforcommunity.html">IGetMembersForCommunity</a>.<a href="igetmembersforcommunity.html#exclude">exclude</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/okunaorg/okuna-js/blob/ea4bcfe/src/typings/api/communities.ts#L69">typings/api/communities.ts:69</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="maxid" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> max<wbr>Id</h3>
 					<div class="tsd-signature tsd-kind-icon">max<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
@@ -147,12 +135,12 @@
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="query" class="tsd-anchor"></a>
-					<h3>query</h3>
-					<div class="tsd-signature tsd-kind-icon">query<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="minid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> min<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">min<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/okunaorg/okuna-js/blob/ea4bcfe/src/typings/api/communities.ts#L79">typings/api/communities.ts:79</a></li>
+							<li>Defined in <a href="https://github.com/okunaorg/okuna-js/blob/ea4bcfe/src/typings/api/posts.ts#L68">typings/api/posts.ts:68</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -171,19 +159,16 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="isearchmembers.html" class="tsd-kind-icon">ISearch<wbr>Members</a>
+						<a href="igettrendingpostsopts.html" class="tsd-kind-icon">IGet<wbr>Trending<wbr>Posts<wbr>Opts</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="isearchmembers.html#count" class="tsd-kind-icon">count</a>
+								<a href="igettrendingpostsopts.html#count" class="tsd-kind-icon">count</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="isearchmembers.html#exclude" class="tsd-kind-icon">exclude</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="isearchmembers.html#maxid" class="tsd-kind-icon">max<wbr>Id</a>
+								<a href="igettrendingpostsopts.html#maxid" class="tsd-kind-icon">max<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="isearchmembers.html#query" class="tsd-kind-icon">query</a>
+								<a href="igettrendingpostsopts.html#minid" class="tsd-kind-icon">min<wbr>Id</a>
 							</li>
 						</ul>
 					</li>
