@@ -16,12 +16,30 @@ class NotificationsAPI extends APIRequest {
    * @param {IGetNotificationOpts} opts - The limitation rules
    */
   async getNotifications(opts: IGetNotificationOpts) {
-    if (opts.maxId) {
-      this._params.maxId = opts.maxId;
+    if (opts.maxId !== undefined) {
+      this._params.max_id = opts.maxId;
     }
 
-    if (opts.count) {
+    if (opts.count !== undefined) {
       this._params.count = opts.count;
+    }
+
+    if (opts.types && opts.types.length) {
+      this._params.types = opts.types.join(',');
+    }
+
+    return this.get();
+  }
+
+  /**
+   * `GET /api/notifications/unread/count` - promises to get the count of the user's unread notifications
+   * @param {IGetNotificationOpts} opts - The limitation rules
+   */
+  async getUnreadNotificationsCount(opts: IGetNotificationOpts) {
+    this._paths.push('unread', 'count');
+
+    if (opts.maxId !== undefined) {
+      this._params.max_id = opts.maxId;
     }
 
     if (opts.types && opts.types.length) {
