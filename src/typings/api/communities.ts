@@ -91,12 +91,12 @@ export interface IGetJoinedCommunities {
 }
 
 /**
- * Parameters for communities().searchJoinedCommunities()
- * @typedef {object} ISearchJoinedCommunities
+ * Parameters for search functions
+ * @typedef {object} ISearchCommunityOpts
  * @property {string} query - the search query
  * @property {number} count - max number of results
  */
-export interface ISearchJoinedCommunities {
+export interface ISearchCommunityOpts {
   query: string;
   count?: number;
 }
@@ -135,4 +135,14 @@ export interface IReportCommunity {
   communityName: string;
   moderationCategoryId: number;
   description?: string;
+}
+
+/**
+ * Parameters for GET communities().getExcludedCommunities()
+ * @typedef {object} IGetExcludedCommunitiesOpts
+ * @extends {IGetFavoriteCommunities}
+ * @property {number} count
+ */
+export interface IGetExcludedCommunitiesOpts extends IGetFavoriteCommunities {
+  count?: number;
 }

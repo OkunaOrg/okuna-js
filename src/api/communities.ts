@@ -14,10 +14,11 @@ import {
   IGetMembersForCommunity,
   ISearchMembers,
   IGetJoinedCommunities,
-  ISearchJoinedCommunities,
+  ISearchCommunityOpts,
   IGetFavoriteCommunities,
   IGetAdministratedCommunities,
-  IReportCommunity
+  IReportCommunity,
+  IGetExcludedCommunitiesOpts
 } from '../typings/api/communities';
 
 import { IGetGlobalModeratedObjects } from '../typings/api/moderation';
@@ -36,7 +37,7 @@ class CommunitiesAPI extends APIRequest {
   async getTrendingCommunities(authenticatedRequest: boolean = true, category: string | null = null) {
     this._paths.push('trending');
     this.requiresToken = authenticatedRequest;
-    
+
     if (category) {
       this._params.category = category;
     }
@@ -44,11 +45,16 @@ class CommunitiesAPI extends APIRequest {
     return this.get();
   }
 
+  async getSuggestedCommunities() {
+    this._paths.push('suggested');
+    return this.get();
+  }
+
   async createPost(communityName: string, opts: ICreatePost) {
     this._paths.push(encodeURIComponent(communityName), 'posts');
 
     const payload: any = {};
-    
+
     if (opts.image) {
       payload.image = new FileObject(opts.image);
     }
@@ -302,8 +308,30 @@ class CommunitiesAPI extends APIRequest {
     return this.get();
   }
 
-  async searchJoinedCommunities(opts: ISearchJoinedCommunities) {
+  async searchJoinedCommunities(opts: ISearchCommunityOpts) {
     this._paths.push('joined', 'search');
+    this._params.query = opts.query;
+
+    if (opts.count !== undefined) {
+      this._params.offset = opts.count;
+    }
+
+    return this.get();
+  }
+
+  async getSubscribedCommunities(opts: IGetJoinedCommunities) {
+    this._paths.push('subscribed');
+    this.requiresToken = opts.authenticatedRequest || opts.authenticatedRequest === undefined;
+
+    if (opts.offset !== undefined) {
+      this._params.offset = opts.offset;
+    }
+
+    return this.get();
+  }
+
+  async searchSubscribedCommunities(opts: ISearchCommunityOpts) {
+    this._paths.push('subscribed', 'search');
     this._params.query = opts.query;
 
     if (opts.count !== undefined) {
@@ -416,9 +444,20 @@ class CommunitiesAPI extends APIRequest {
   async getFavoriteCommunities(opts: IGetFavoriteCommunities) {
     this._paths.push('favorites');
     this.requiresToken = opts.authenticatedRequest || opts.authenticatedRequest === undefined;
-    
+
     if (opts.offset !== undefined) {
       this._params.offset = opts.offset;
+    }
+
+    return this.get();
+  }
+
+  async searchFavoriteCommunities(opts: ISearchCommunityOpts) {
+    this._paths.push('favorite', 'search');
+    this._params.query = opts.query;
+
+    if (opts.count !== undefined) {
+      this._params.offset = opts.count;
     }
 
     return this.get();
@@ -434,6 +473,52 @@ class CommunitiesAPI extends APIRequest {
     return this.delete();
   }
 
+  async subscribeToCommunity(communityName: string) {
+    this._paths.push(encodeURIComponent(communityName), 'notifications', 'subscribe');
+    return this.put({});
+  }
+
+  async unsubscribeToCommunit(communityName: string) {
+    this._paths.push(encodeURIComponent(communityName), 'notifications', 'subscribe');
+    return this.delete();
+  }
+
+  async getExcludedCommunities(opts: IGetExcludedCommunitiesOpts) {
+    this._paths.push('top-posts', 'exclusions');
+    this.requiresToken = opts.authenticatedRequest || opts.authenticatedRequest === undefined;
+
+    if (opts.offset !== undefined) {
+      this._params.offset = opts.offset;
+    }
+
+    if (opts.count !== undefined) {
+      this._params.count = opts.count;
+    }
+
+    return this.get();
+  }
+
+  async searchExcludedCommunities(opts: ISearchCommunityOpts) {
+    this._paths.push('top-posts', 'exclusions', 'search');
+    this._params.query = opts.query;
+
+    if (opts.count !== undefined) {
+      this._params.offset = opts.count;
+    }
+
+    return this.get();
+  }
+
+  async excludeCommunityFromTopPosts(communityName: string) {
+    this._paths.push(encodeURIComponent(communityName), 'top-posts', 'exclude');
+    return this.put({});
+  }
+
+  async undoExcludeCommunityFromTopPosts(communityName: string) {
+    this._paths.push(encodeURIComponent(communityName), 'top-posts', 'exclude');
+    return this.delete();
+  }
+
   async getAdministratedCommunities(opts: IGetAdministratedCommunities) {
     this._paths.push('administrated');
     this.requiresToken = opts.authenticatedRequest || opts.authenticatedRequest === undefined;
@@ -445,12 +530,34 @@ class CommunitiesAPI extends APIRequest {
     return this.get();
   }
 
+  async searchAdministratedCommunities(opts: ISearchCommunityOpts) {
+    this._paths.push('administrated', 'search');
+    this._params.query = opts.query;
+
+    if (opts.count !== undefined) {
+      this._params.offset = opts.count;
+    }
+
+    return this.get();
+  }
+
   async getModeratedCommunities(opts: IGetAdministratedCommunities) {
     this._paths.push('moderated');
     this.requiresToken = opts.authenticatedRequest || opts.authenticatedRequest === undefined;
 
     if (opts.offset !== undefined) {
       this._params.offset = opts.offset;
+    }
+
+    return this.get();
+  }
+
+  async searchModeratedCommunities(opts: ISearchCommunityOpts) {
+    this._paths.push('moderated', 'search');
+    this._params.query = opts.query;
+
+    if (opts.count !== undefined) {
+      this._params.offset = opts.count;
     }
 
     return this.get();
