@@ -9,6 +9,7 @@ import { ConnectionsAPI } from '../src/api/connections';
 import { DevicesAPI } from '../src/api/devices';
 import { EmojisAPI } from '../src/api/emojis';
 import { FollowsAPI } from '../src/api/follows';
+import { HashtagsAPI } from '../src/api/hashtags';
 import { HealthAPI } from '../src/api/health';
 import { ListsAPI } from '../src/api/lists';
 import { ModerationAPI } from '../src/api/moderation';
@@ -136,6 +137,10 @@ describe('Client', function () {
 
     it('#follows', function () {
       return expect(this.client.follows()).to.be.instanceof(FollowsAPI);
+    });
+
+    it('#hashtags', function () {
+      return expect(this.client.hashtags()).to.be.instanceof(HashtagsAPI);
     });
 
     it('#health', function () {
